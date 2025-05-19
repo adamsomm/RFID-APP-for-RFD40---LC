@@ -1,0 +1,334 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:2:1-33:12
+INJECTED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:2:1-33:12
+INJECTED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:2:1-33:12
+INJECTED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:2:1-33:12
+MERGED from [API3_ASCII-release-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\de1e63b1f12903acf28c96214be45618\transformed\jetified-API3_ASCII-release-2.0.4.192\AndroidManifest.xml:2:1-7:12
+MERGED from [API3_CMN-release-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\41c0c1e5621b9b61360091dc3af32e86\transformed\jetified-API3_CMN-release-2.0.4.192\AndroidManifest.xml:2:1-7:12
+MERGED from [API3_INTERFACE-release-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\34c6bcd66b6678fa2eec641903de528f\transformed\jetified-API3_INTERFACE-release-2.0.4.192\AndroidManifest.xml:2:1-7:12
+MERGED from [API3_LLRP-release-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\03ec03fca32d0a0b794932788d646316\transformed\jetified-API3_LLRP-release-2.0.4.192\AndroidManifest.xml:2:1-7:12
+MERGED from [API3_NGE-protocolrelease-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\c5a214757a1977364b749b4ffdd7719c\transformed\jetified-API3_NGE-protocolrelease-2.0.4.192\AndroidManifest.xml:2:1-7:12
+MERGED from [API3_NGE-Transportrelease-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\d6bd39136168b949b07401e41451f1c1\transformed\jetified-API3_NGE-Transportrelease-2.0.4.192\AndroidManifest.xml:2:1-7:12
+MERGED from [API3_NGEUSB-Transportrelease-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\78332e7d856f41ca1d7de02a8fd69c4a\transformed\jetified-API3_NGEUSB-Transportrelease-2.0.4.192\AndroidManifest.xml:2:1-7:12
+MERGED from [API3_READER-release-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\5e3b028f990116ad3cebd6191bae9e1a\transformed\jetified-API3_READER-release-2.0.4.192\AndroidManifest.xml:2:1-10:12
+MERGED from [API3_TRANSPORT-release-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\08b251bb2889f2a2a791291ad39621ad\transformed\jetified-API3_TRANSPORT-release-2.0.4.192\AndroidManifest.xml:2:1-7:12
+MERGED from [API3_ZIOTC-release-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\766e3a960a55e9e04c5bf982cdce8c40\transformed\jetified-API3_ZIOTC-release-2.0.4.192\AndroidManifest.xml:2:1-7:12
+MERGED from [API3_ZIOTCTRANSPORT-release-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\6178fc4623c36daffab5ef6b58be0421\transformed\jetified-API3_ZIOTCTRANSPORT-release-2.0.4.192\AndroidManifest.xml:2:1-9:12
+MERGED from [BarcodeScannerLibrary-release-28.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\a817084ac53d001246143e10bf9e3ff4\transformed\jetified-BarcodeScannerLibrary-release-28\AndroidManifest.xml:2:1-17:12
+MERGED from [rfidhostlib.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\ac72327864e9d739cafc020bc2f346d7\transformed\jetified-rfidhostlib\AndroidManifest.xml:2:1-11:12
+MERGED from [rfidseriallib.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\3f184effb564546ee07bf87c72a20379\transformed\jetified-rfidseriallib\AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.navigation:navigation-ui:2.3.5] C:\Users\matta\.gradle\caches\8.11.1\transforms\b4bd4cc08e597c432073cabf85a48d6d\transformed\navigation-ui-2.3.5\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.material:material:1.4.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\a86c860001760ef6da3818b273ca5801\transformed\material-1.4.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\matta\.gradle\caches\8.11.1\transforms\63db9726d7e9054aa8c15be29f35b7b8\transformed\constraintlayout-2.0.4\AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.appcompat:appcompat:1.3.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\bfb928b03557479dce5cebef21ece518\transformed\appcompat-1.3.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\bc178259628126d678c07a0ce5251e55\transformed\legacy-support-v4-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-fragment:2.3.5] C:\Users\matta\.gradle\caches\8.11.1\transforms\29715efd984f3eabf3da4bee65a79dea\transformed\navigation-fragment-2.3.5\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\a5b57ea3b090a41fc5a2e804a2d394e8\transformed\jetified-viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.recyclerview:recyclerview:1.2.1] C:\Users\matta\.gradle\caches\8.11.1\transforms\41ce10bf2447fe56722c5b13c6aa2b59\transformed\recyclerview-1.2.1\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-location:18.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\f2224714f9888f891b6daaba9aa123c1\transformed\jetified-play-services-location-18.0.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-base:17.5.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\a523ba6ed02d0a6a507c04a12f8b587c\transformed\jetified-play-services-base-17.5.0\AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\46776d634f83a8c48c772ce3bbf133bb\transformed\jetified-play-services-places-placereport-17.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-tasks:17.2.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\47e1f24767d1f79cf867f061f377d0cd\transformed\jetified-play-services-tasks-17.2.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-basement:17.5.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\bcfac88c5dabcbaae12c4743735c7b5d\transformed\jetified-play-services-basement-17.5.0\AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.fragment:fragment:1.3.4] C:\Users\matta\.gradle\caches\8.11.1\transforms\6a89081761d11c5e5c636067fb3e3c37\transformed\fragment-1.3.4\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-runtime:2.3.5] C:\Users\matta\.gradle\caches\8.11.1\transforms\6a3ff708fa53f84afe636b498b27a1e8\transformed\navigation-runtime-2.3.5\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity:1.2.3] C:\Users\matta\.gradle\caches\8.11.1\transforms\52d354465062d7eacf3b45da9a1090db\transformed\jetified-activity-1.2.3\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat-resources:1.3.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\3dbc8b5e3f9bebfb9418122c0d931fc1\transformed\jetified-appcompat-resources-1.3.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\86c816b80ffbd11d6555646254f003a9\transformed\legacy-support-core-ui-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\42794dc45127672db4b23c8c50a7247c\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\6ab4561a9848846378af8d53c6f962b7\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\b4b38e60d56d4dbdb9b7563567228896\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\beabe955e962809f15cc84fe4eaba85f\transformed\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.media:media:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\b9efd796d2dbb5d70b1a7039da60da2f\transformed\media-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\d11e27e77a587ac25efc4fa32f39ce35\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\matta\.gradle\caches\8.11.1\transforms\c9421449245d9fc12493a025df84ffbe\transformed\drawerlayout-1.1.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.transition:transition:1.3.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\76240bf4f223450a3ce6af1c31ce7855\transformed\transition-1.3.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\da9f1df1e67199da62e0b8be7f89d2e6\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\aab2272f68efdc8b33aba75b4eb918e9\transformed\slidingpanelayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.1.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\c3da0df1cd1ea8c4ec0e25896643eb5f\transformed\customview-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\f4f565d8c8b6235a02241435e2be1a66\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\995ef73c27b3f8f68a1a0f118ba9fed8\transformed\swiperefreshlayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\3a948f6e89caa8fdcc93e70a8b5a3f7f\transformed\asynclayoutinflater-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-common:2.3.5] C:\Users\matta\.gradle\caches\8.11.1\transforms\2b14c9618d60894130f9dbcd9785bb09\transformed\navigation-common-2.3.5\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core:1.5.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\82f15a484676b7c1a03ab4f9a8618595\transformed\core-1.5.0\AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\a7a3d292e60d2646e286f44eff6a1e29\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] C:\Users\matta\.gradle\caches\8.11.1\transforms\eae3f2dd274bfe2fb907c42ca02ed7f9\transformed\jetified-lifecycle-viewmodel-savedstate-2.3.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\06b5e8a80f138dcd5bf5e49609fad9f2\transformed\jetified-savedstate-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] C:\Users\matta\.gradle\caches\8.11.1\transforms\faa54503cc1063f237ad9376904b71dc\transformed\lifecycle-runtime-2.3.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] C:\Users\matta\.gradle\caches\8.11.1\transforms\fda2cb4f66762016d9ffc0d9a289fcee\transformed\lifecycle-viewmodel-2.3.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\749bf6dbd77c9593446769ce6c36a073\transformed\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\matta\.gradle\caches\8.11.1\transforms\bb9c9df7b6f73016e4b5cad56160a631\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\71f867f9dbdafa1397394fac7396d433\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\5fc7b1fc0fc99f25bd053ac9d3236eca\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.1] C:\Users\matta\.gradle\caches\8.11.1\transforms\24e3b385d5fa759315ad0a007f8512f0\transformed\lifecycle-livedata-core-2.3.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\f6acea11d968dd284e2907af7deda0d5\transformed\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\4c725b9b301350756d3bf486eea14b6e\transformed\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\d9ab830438b55e6e29f17376adcd4063\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\faa3ec6bb84a97d8a3d467f511955067\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\4b61cf9167f1b88b897e5747bc951acf\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\21fb509b1fd5b6329472d247a29524b4\transformed\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:17:1-24:12
+	package
+		ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:4:5-44
+		INJECTED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml
+	xmlns:tools
+		ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:3:5-51
+	android:versionCode
+		INJECTED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.BLUETOOTH
+ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:6:5-68
+MERGED from [BarcodeScannerLibrary-release-28.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\a817084ac53d001246143e10bf9e3ff4\transformed\jetified-BarcodeScannerLibrary-release-28\AndroidManifest.xml:7:5-68
+MERGED from [BarcodeScannerLibrary-release-28.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\a817084ac53d001246143e10bf9e3ff4\transformed\jetified-BarcodeScannerLibrary-release-28\AndroidManifest.xml:7:5-68
+	android:name
+		ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:6:22-65
+uses-permission#android.permission.BLUETOOTH_ADMIN
+ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:7:5-74
+MERGED from [BarcodeScannerLibrary-release-28.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\a817084ac53d001246143e10bf9e3ff4\transformed\jetified-BarcodeScannerLibrary-release-28\AndroidManifest.xml:8:5-74
+MERGED from [BarcodeScannerLibrary-release-28.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\a817084ac53d001246143e10bf9e3ff4\transformed\jetified-BarcodeScannerLibrary-release-28\AndroidManifest.xml:8:5-74
+	android:name
+		ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:7:22-71
+uses-permission#android.permission.BLUETOOTH_CONNECT
+ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:8:5-76
+MERGED from [API3_READER-release-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\5e3b028f990116ad3cebd6191bae9e1a\transformed\jetified-API3_READER-release-2.0.4.192\AndroidManifest.xml:7:5-76
+MERGED from [API3_READER-release-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\5e3b028f990116ad3cebd6191bae9e1a\transformed\jetified-API3_READER-release-2.0.4.192\AndroidManifest.xml:7:5-76
+MERGED from [API3_READER-release-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\5e3b028f990116ad3cebd6191bae9e1a\transformed\jetified-API3_READER-release-2.0.4.192\AndroidManifest.xml:8:5-76
+MERGED from [API3_READER-release-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\5e3b028f990116ad3cebd6191bae9e1a\transformed\jetified-API3_READER-release-2.0.4.192\AndroidManifest.xml:8:5-76
+MERGED from [BarcodeScannerLibrary-release-28.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\a817084ac53d001246143e10bf9e3ff4\transformed\jetified-BarcodeScannerLibrary-release-28\AndroidManifest.xml:11:5-76
+MERGED from [BarcodeScannerLibrary-release-28.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\a817084ac53d001246143e10bf9e3ff4\transformed\jetified-BarcodeScannerLibrary-release-28\AndroidManifest.xml:11:5-76
+	android:name
+		ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:8:22-73
+uses-permission#android.permission.BLUETOOTH_SCAN
+ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:9:5-73
+	android:name
+		ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:9:22-70
+uses-permission#android.permission.BLUETOOTH_ADVERTISE
+ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:10:5-78
+	android:name
+		ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:10:22-75
+application
+ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:11:5-31:19
+INJECTED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:11:5-31:19
+MERGED from [BarcodeScannerLibrary-release-28.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\a817084ac53d001246143e10bf9e3ff4\transformed\jetified-BarcodeScannerLibrary-release-28\AndroidManifest.xml:13:5-15:44
+MERGED from [BarcodeScannerLibrary-release-28.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\a817084ac53d001246143e10bf9e3ff4\transformed\jetified-BarcodeScannerLibrary-release-28\AndroidManifest.xml:13:5-15:44
+MERGED from [rfidhostlib.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\ac72327864e9d739cafc020bc2f346d7\transformed\jetified-rfidhostlib\AndroidManifest.xml:9:5-20
+MERGED from [rfidhostlib.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\ac72327864e9d739cafc020bc2f346d7\transformed\jetified-rfidhostlib\AndroidManifest.xml:9:5-20
+MERGED from [com.google.android.material:material:1.4.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\a86c860001760ef6da3818b273ca5801\transformed\material-1.4.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.4.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\a86c860001760ef6da3818b273ca5801\transformed\material-1.4.0\AndroidManifest.xml:22:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\matta\.gradle\caches\8.11.1\transforms\63db9726d7e9054aa8c15be29f35b7b8\transformed\constraintlayout-2.0.4\AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\matta\.gradle\caches\8.11.1\transforms\63db9726d7e9054aa8c15be29f35b7b8\transformed\constraintlayout-2.0.4\AndroidManifest.xml:9:5-20
+MERGED from [com.google.android.gms:play-services-location:18.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\f2224714f9888f891b6daaba9aa123c1\transformed\jetified-play-services-location-18.0.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-location:18.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\f2224714f9888f891b6daaba9aa123c1\transformed\jetified-play-services-location-18.0.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-base:17.5.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\a523ba6ed02d0a6a507c04a12f8b587c\transformed\jetified-play-services-base-17.5.0\AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:17.5.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\a523ba6ed02d0a6a507c04a12f8b587c\transformed\jetified-play-services-base-17.5.0\AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\46776d634f83a8c48c772ce3bbf133bb\transformed\jetified-play-services-places-placereport-17.0.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\46776d634f83a8c48c772ce3bbf133bb\transformed\jetified-play-services-places-placereport-17.0.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-tasks:17.2.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\47e1f24767d1f79cf867f061f377d0cd\transformed\jetified-play-services-tasks-17.2.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:17.2.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\47e1f24767d1f79cf867f061f377d0cd\transformed\jetified-play-services-tasks-17.2.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-basement:17.5.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\bcfac88c5dabcbaae12c4743735c7b5d\transformed\jetified-play-services-basement-17.5.0\AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:17.5.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\bcfac88c5dabcbaae12c4743735c7b5d\transformed\jetified-play-services-basement-17.5.0\AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.core:core:1.5.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\82f15a484676b7c1a03ab4f9a8618595\transformed\core-1.5.0\AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.5.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\82f15a484676b7c1a03ab4f9a8618595\transformed\core-1.5.0\AndroidManifest.xml:24:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\matta\.gradle\caches\8.11.1\transforms\bb9c9df7b6f73016e4b5cad56160a631\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\matta\.gradle\caches\8.11.1\transforms\bb9c9df7b6f73016e4b5cad56160a631\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+	android:extractNativeLibs
+		INJECTED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml
+	android:supportsRtl
+		ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:16:9-35
+	android:label
+		ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:14:9-41
+	android:appComponentFactory
+		ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:17:9-77
+	android:roundIcon
+		ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:15:9-54
+	android:icon
+		ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:13:9-43
+	android:allowBackup
+		ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:12:9-35
+	android:theme
+		ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:18:9-46
+activity#com.zebra.rfid.demo.sdksample.MainActivity
+ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:19:9-30:20
+	android:screenOrientation
+		ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:22:13-49
+	android:label
+		ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:21:13-45
+	android:exported
+		ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:24:13-36
+	android:name
+		ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:20:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:25:13-29:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:26:17-69
+	android:name
+		ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:26:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:28:17-77
+	android:name
+		ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:28:27-74
+uses-sdk
+INJECTED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml
+MERGED from [API3_ASCII-release-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\de1e63b1f12903acf28c96214be45618\transformed\jetified-API3_ASCII-release-2.0.4.192\AndroidManifest.xml:5:5-44
+MERGED from [API3_ASCII-release-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\de1e63b1f12903acf28c96214be45618\transformed\jetified-API3_ASCII-release-2.0.4.192\AndroidManifest.xml:5:5-44
+MERGED from [API3_CMN-release-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\41c0c1e5621b9b61360091dc3af32e86\transformed\jetified-API3_CMN-release-2.0.4.192\AndroidManifest.xml:5:5-44
+MERGED from [API3_CMN-release-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\41c0c1e5621b9b61360091dc3af32e86\transformed\jetified-API3_CMN-release-2.0.4.192\AndroidManifest.xml:5:5-44
+MERGED from [API3_INTERFACE-release-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\34c6bcd66b6678fa2eec641903de528f\transformed\jetified-API3_INTERFACE-release-2.0.4.192\AndroidManifest.xml:5:5-44
+MERGED from [API3_INTERFACE-release-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\34c6bcd66b6678fa2eec641903de528f\transformed\jetified-API3_INTERFACE-release-2.0.4.192\AndroidManifest.xml:5:5-44
+MERGED from [API3_LLRP-release-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\03ec03fca32d0a0b794932788d646316\transformed\jetified-API3_LLRP-release-2.0.4.192\AndroidManifest.xml:5:5-44
+MERGED from [API3_LLRP-release-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\03ec03fca32d0a0b794932788d646316\transformed\jetified-API3_LLRP-release-2.0.4.192\AndroidManifest.xml:5:5-44
+MERGED from [API3_NGE-protocolrelease-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\c5a214757a1977364b749b4ffdd7719c\transformed\jetified-API3_NGE-protocolrelease-2.0.4.192\AndroidManifest.xml:5:5-44
+MERGED from [API3_NGE-protocolrelease-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\c5a214757a1977364b749b4ffdd7719c\transformed\jetified-API3_NGE-protocolrelease-2.0.4.192\AndroidManifest.xml:5:5-44
+MERGED from [API3_NGE-Transportrelease-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\d6bd39136168b949b07401e41451f1c1\transformed\jetified-API3_NGE-Transportrelease-2.0.4.192\AndroidManifest.xml:5:5-44
+MERGED from [API3_NGE-Transportrelease-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\d6bd39136168b949b07401e41451f1c1\transformed\jetified-API3_NGE-Transportrelease-2.0.4.192\AndroidManifest.xml:5:5-44
+MERGED from [API3_NGEUSB-Transportrelease-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\78332e7d856f41ca1d7de02a8fd69c4a\transformed\jetified-API3_NGEUSB-Transportrelease-2.0.4.192\AndroidManifest.xml:5:5-44
+MERGED from [API3_NGEUSB-Transportrelease-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\78332e7d856f41ca1d7de02a8fd69c4a\transformed\jetified-API3_NGEUSB-Transportrelease-2.0.4.192\AndroidManifest.xml:5:5-44
+MERGED from [API3_READER-release-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\5e3b028f990116ad3cebd6191bae9e1a\transformed\jetified-API3_READER-release-2.0.4.192\AndroidManifest.xml:5:5-44
+MERGED from [API3_READER-release-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\5e3b028f990116ad3cebd6191bae9e1a\transformed\jetified-API3_READER-release-2.0.4.192\AndroidManifest.xml:5:5-44
+MERGED from [API3_TRANSPORT-release-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\08b251bb2889f2a2a791291ad39621ad\transformed\jetified-API3_TRANSPORT-release-2.0.4.192\AndroidManifest.xml:5:5-44
+MERGED from [API3_TRANSPORT-release-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\08b251bb2889f2a2a791291ad39621ad\transformed\jetified-API3_TRANSPORT-release-2.0.4.192\AndroidManifest.xml:5:5-44
+MERGED from [API3_ZIOTC-release-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\766e3a960a55e9e04c5bf982cdce8c40\transformed\jetified-API3_ZIOTC-release-2.0.4.192\AndroidManifest.xml:5:5-44
+MERGED from [API3_ZIOTC-release-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\766e3a960a55e9e04c5bf982cdce8c40\transformed\jetified-API3_ZIOTC-release-2.0.4.192\AndroidManifest.xml:5:5-44
+MERGED from [API3_ZIOTCTRANSPORT-release-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\6178fc4623c36daffab5ef6b58be0421\transformed\jetified-API3_ZIOTCTRANSPORT-release-2.0.4.192\AndroidManifest.xml:5:5-44
+MERGED from [API3_ZIOTCTRANSPORT-release-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\6178fc4623c36daffab5ef6b58be0421\transformed\jetified-API3_ZIOTCTRANSPORT-release-2.0.4.192\AndroidManifest.xml:5:5-44
+MERGED from [BarcodeScannerLibrary-release-28.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\a817084ac53d001246143e10bf9e3ff4\transformed\jetified-BarcodeScannerLibrary-release-28\AndroidManifest.xml:5:5-44
+MERGED from [BarcodeScannerLibrary-release-28.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\a817084ac53d001246143e10bf9e3ff4\transformed\jetified-BarcodeScannerLibrary-release-28\AndroidManifest.xml:5:5-44
+MERGED from [rfidhostlib.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\ac72327864e9d739cafc020bc2f346d7\transformed\jetified-rfidhostlib\AndroidManifest.xml:5:5-7:41
+MERGED from [rfidhostlib.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\ac72327864e9d739cafc020bc2f346d7\transformed\jetified-rfidhostlib\AndroidManifest.xml:5:5-7:41
+MERGED from [rfidseriallib.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\3f184effb564546ee07bf87c72a20379\transformed\jetified-rfidseriallib\AndroidManifest.xml:5:5-7:41
+MERGED from [rfidseriallib.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\3f184effb564546ee07bf87c72a20379\transformed\jetified-rfidseriallib\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.navigation:navigation-ui:2.3.5] C:\Users\matta\.gradle\caches\8.11.1\transforms\b4bd4cc08e597c432073cabf85a48d6d\transformed\navigation-ui-2.3.5\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-ui:2.3.5] C:\Users\matta\.gradle\caches\8.11.1\transforms\b4bd4cc08e597c432073cabf85a48d6d\transformed\navigation-ui-2.3.5\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.material:material:1.4.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\a86c860001760ef6da3818b273ca5801\transformed\material-1.4.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.4.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\a86c860001760ef6da3818b273ca5801\transformed\material-1.4.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\matta\.gradle\caches\8.11.1\transforms\63db9726d7e9054aa8c15be29f35b7b8\transformed\constraintlayout-2.0.4\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\matta\.gradle\caches\8.11.1\transforms\63db9726d7e9054aa8c15be29f35b7b8\transformed\constraintlayout-2.0.4\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.appcompat:appcompat:1.3.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\bfb928b03557479dce5cebef21ece518\transformed\appcompat-1.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.3.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\bfb928b03557479dce5cebef21ece518\transformed\appcompat-1.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\bc178259628126d678c07a0ce5251e55\transformed\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\bc178259628126d678c07a0ce5251e55\transformed\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-fragment:2.3.5] C:\Users\matta\.gradle\caches\8.11.1\transforms\29715efd984f3eabf3da4bee65a79dea\transformed\navigation-fragment-2.3.5\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-fragment:2.3.5] C:\Users\matta\.gradle\caches\8.11.1\transforms\29715efd984f3eabf3da4bee65a79dea\transformed\navigation-fragment-2.3.5\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\a5b57ea3b090a41fc5a2e804a2d394e8\transformed\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\a5b57ea3b090a41fc5a2e804a2d394e8\transformed\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.2.1] C:\Users\matta\.gradle\caches\8.11.1\transforms\41ce10bf2447fe56722c5b13c6aa2b59\transformed\recyclerview-1.2.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.2.1] C:\Users\matta\.gradle\caches\8.11.1\transforms\41ce10bf2447fe56722c5b13c6aa2b59\transformed\recyclerview-1.2.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.gms:play-services-location:18.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\f2224714f9888f891b6daaba9aa123c1\transformed\jetified-play-services-location-18.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-location:18.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\f2224714f9888f891b6daaba9aa123c1\transformed\jetified-play-services-location-18.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-base:17.5.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\a523ba6ed02d0a6a507c04a12f8b587c\transformed\jetified-play-services-base-17.5.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:17.5.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\a523ba6ed02d0a6a507c04a12f8b587c\transformed\jetified-play-services-base-17.5.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\46776d634f83a8c48c772ce3bbf133bb\transformed\jetified-play-services-places-placereport-17.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\46776d634f83a8c48c772ce3bbf133bb\transformed\jetified-play-services-places-placereport-17.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks:17.2.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\47e1f24767d1f79cf867f061f377d0cd\transformed\jetified-play-services-tasks-17.2.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:17.2.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\47e1f24767d1f79cf867f061f377d0cd\transformed\jetified-play-services-tasks-17.2.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-basement:17.5.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\bcfac88c5dabcbaae12c4743735c7b5d\transformed\jetified-play-services-basement-17.5.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:17.5.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\bcfac88c5dabcbaae12c4743735c7b5d\transformed\jetified-play-services-basement-17.5.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.3.4] C:\Users\matta\.gradle\caches\8.11.1\transforms\6a89081761d11c5e5c636067fb3e3c37\transformed\fragment-1.3.4\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.3.4] C:\Users\matta\.gradle\caches\8.11.1\transforms\6a89081761d11c5e5c636067fb3e3c37\transformed\fragment-1.3.4\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-runtime:2.3.5] C:\Users\matta\.gradle\caches\8.11.1\transforms\6a3ff708fa53f84afe636b498b27a1e8\transformed\navigation-runtime-2.3.5\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-runtime:2.3.5] C:\Users\matta\.gradle\caches\8.11.1\transforms\6a3ff708fa53f84afe636b498b27a1e8\transformed\navigation-runtime-2.3.5\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.2.3] C:\Users\matta\.gradle\caches\8.11.1\transforms\52d354465062d7eacf3b45da9a1090db\transformed\jetified-activity-1.2.3\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.2.3] C:\Users\matta\.gradle\caches\8.11.1\transforms\52d354465062d7eacf3b45da9a1090db\transformed\jetified-activity-1.2.3\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.3.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\3dbc8b5e3f9bebfb9418122c0d931fc1\transformed\jetified-appcompat-resources-1.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.3.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\3dbc8b5e3f9bebfb9418122c0d931fc1\transformed\jetified-appcompat-resources-1.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\86c816b80ffbd11d6555646254f003a9\transformed\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\86c816b80ffbd11d6555646254f003a9\transformed\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\42794dc45127672db4b23c8c50a7247c\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\42794dc45127672db4b23c8c50a7247c\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\6ab4561a9848846378af8d53c6f962b7\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\6ab4561a9848846378af8d53c6f962b7\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\b4b38e60d56d4dbdb9b7563567228896\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\b4b38e60d56d4dbdb9b7563567228896\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\beabe955e962809f15cc84fe4eaba85f\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\beabe955e962809f15cc84fe4eaba85f\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.media:media:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\b9efd796d2dbb5d70b1a7039da60da2f\transformed\media-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\b9efd796d2dbb5d70b1a7039da60da2f\transformed\media-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\d11e27e77a587ac25efc4fa32f39ce35\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\d11e27e77a587ac25efc4fa32f39ce35\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\matta\.gradle\caches\8.11.1\transforms\c9421449245d9fc12493a025df84ffbe\transformed\drawerlayout-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\matta\.gradle\caches\8.11.1\transforms\c9421449245d9fc12493a025df84ffbe\transformed\drawerlayout-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.3.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\76240bf4f223450a3ce6af1c31ce7855\transformed\transition-1.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.3.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\76240bf4f223450a3ce6af1c31ce7855\transformed\transition-1.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\da9f1df1e67199da62e0b8be7f89d2e6\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\da9f1df1e67199da62e0b8be7f89d2e6\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\aab2272f68efdc8b33aba75b4eb918e9\transformed\slidingpanelayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\aab2272f68efdc8b33aba75b4eb918e9\transformed\slidingpanelayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.1.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\c3da0df1cd1ea8c4ec0e25896643eb5f\transformed\customview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.1.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\c3da0df1cd1ea8c4ec0e25896643eb5f\transformed\customview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\f4f565d8c8b6235a02241435e2be1a66\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\f4f565d8c8b6235a02241435e2be1a66\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\995ef73c27b3f8f68a1a0f118ba9fed8\transformed\swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\995ef73c27b3f8f68a1a0f118ba9fed8\transformed\swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\3a948f6e89caa8fdcc93e70a8b5a3f7f\transformed\asynclayoutinflater-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\3a948f6e89caa8fdcc93e70a8b5a3f7f\transformed\asynclayoutinflater-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common:2.3.5] C:\Users\matta\.gradle\caches\8.11.1\transforms\2b14c9618d60894130f9dbcd9785bb09\transformed\navigation-common-2.3.5\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-common:2.3.5] C:\Users\matta\.gradle\caches\8.11.1\transforms\2b14c9618d60894130f9dbcd9785bb09\transformed\navigation-common-2.3.5\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.5.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\82f15a484676b7c1a03ab4f9a8618595\transformed\core-1.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.5.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\82f15a484676b7c1a03ab4f9a8618595\transformed\core-1.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\a7a3d292e60d2646e286f44eff6a1e29\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\a7a3d292e60d2646e286f44eff6a1e29\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] C:\Users\matta\.gradle\caches\8.11.1\transforms\eae3f2dd274bfe2fb907c42ca02ed7f9\transformed\jetified-lifecycle-viewmodel-savedstate-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] C:\Users\matta\.gradle\caches\8.11.1\transforms\eae3f2dd274bfe2fb907c42ca02ed7f9\transformed\jetified-lifecycle-viewmodel-savedstate-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\06b5e8a80f138dcd5bf5e49609fad9f2\transformed\jetified-savedstate-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\06b5e8a80f138dcd5bf5e49609fad9f2\transformed\jetified-savedstate-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] C:\Users\matta\.gradle\caches\8.11.1\transforms\faa54503cc1063f237ad9376904b71dc\transformed\lifecycle-runtime-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] C:\Users\matta\.gradle\caches\8.11.1\transforms\faa54503cc1063f237ad9376904b71dc\transformed\lifecycle-runtime-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] C:\Users\matta\.gradle\caches\8.11.1\transforms\fda2cb4f66762016d9ffc0d9a289fcee\transformed\lifecycle-viewmodel-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] C:\Users\matta\.gradle\caches\8.11.1\transforms\fda2cb4f66762016d9ffc0d9a289fcee\transformed\lifecycle-viewmodel-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\749bf6dbd77c9593446769ce6c36a073\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\749bf6dbd77c9593446769ce6c36a073\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\matta\.gradle\caches\8.11.1\transforms\bb9c9df7b6f73016e4b5cad56160a631\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\matta\.gradle\caches\8.11.1\transforms\bb9c9df7b6f73016e4b5cad56160a631\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\71f867f9dbdafa1397394fac7396d433\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\71f867f9dbdafa1397394fac7396d433\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\5fc7b1fc0fc99f25bd053ac9d3236eca\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\5fc7b1fc0fc99f25bd053ac9d3236eca\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.1] C:\Users\matta\.gradle\caches\8.11.1\transforms\24e3b385d5fa759315ad0a007f8512f0\transformed\lifecycle-livedata-core-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.1] C:\Users\matta\.gradle\caches\8.11.1\transforms\24e3b385d5fa759315ad0a007f8512f0\transformed\lifecycle-livedata-core-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\f6acea11d968dd284e2907af7deda0d5\transformed\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\f6acea11d968dd284e2907af7deda0d5\transformed\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\4c725b9b301350756d3bf486eea14b6e\transformed\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\4c725b9b301350756d3bf486eea14b6e\transformed\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\d9ab830438b55e6e29f17376adcd4063\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\d9ab830438b55e6e29f17376adcd4063\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\faa3ec6bb84a97d8a3d467f511955067\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\faa3ec6bb84a97d8a3d467f511955067\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\4b61cf9167f1b88b897e5747bc951acf\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\4b61cf9167f1b88b897e5747bc951acf\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\21fb509b1fd5b6329472d247a29524b4\transformed\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\21fb509b1fd5b6329472d247a29524b4\transformed\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:20:5-22:41
+	android:targetSdkVersion
+		INJECTED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from [API3_ZIOTCTRANSPORT-release-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\6178fc4623c36daffab5ef6b58be0421\transformed\jetified-API3_ZIOTCTRANSPORT-release-2.0.4.192\AndroidManifest.xml:7:5-80
+	android:name
+		ADDED from [API3_ZIOTCTRANSPORT-release-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\6178fc4623c36daffab5ef6b58be0421\transformed\jetified-API3_ZIOTCTRANSPORT-release-2.0.4.192\AndroidManifest.xml:7:22-77
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from [BarcodeScannerLibrary-release-28.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\a817084ac53d001246143e10bf9e3ff4\transformed\jetified-BarcodeScannerLibrary-release-28\AndroidManifest.xml:9:5-81
+	android:name
+		ADDED from [BarcodeScannerLibrary-release-28.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\a817084ac53d001246143e10bf9e3ff4\transformed\jetified-BarcodeScannerLibrary-release-28\AndroidManifest.xml:9:22-78
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from [BarcodeScannerLibrary-release-28.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\a817084ac53d001246143e10bf9e3ff4\transformed\jetified-BarcodeScannerLibrary-release-28\AndroidManifest.xml:10:5-79
+	android:name
+		ADDED from [BarcodeScannerLibrary-release-28.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\a817084ac53d001246143e10bf9e3ff4\transformed\jetified-BarcodeScannerLibrary-release-28\AndroidManifest.xml:10:22-76
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:17.5.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\a523ba6ed02d0a6a507c04a12f8b587c\transformed\jetified-play-services-base-17.5.0\AndroidManifest.xml:23:9-26:75
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:17.5.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\a523ba6ed02d0a6a507c04a12f8b587c\transformed\jetified-play-services-base-17.5.0\AndroidManifest.xml:25:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:17.5.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\a523ba6ed02d0a6a507c04a12f8b587c\transformed\jetified-play-services-base-17.5.0\AndroidManifest.xml:26:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:17.5.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\a523ba6ed02d0a6a507c04a12f8b587c\transformed\jetified-play-services-base-17.5.0\AndroidManifest.xml:24:13-79
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:17.5.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\bcfac88c5dabcbaae12c4743735c7b5d\transformed\jetified-play-services-basement-17.5.0\AndroidManifest.xml:23:9-25:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:17.5.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\bcfac88c5dabcbaae12c4743735c7b5d\transformed\jetified-play-services-basement-17.5.0\AndroidManifest.xml:25:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:17.5.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\bcfac88c5dabcbaae12c4743735c7b5d\transformed\jetified-play-services-basement-17.5.0\AndroidManifest.xml:24:13-58

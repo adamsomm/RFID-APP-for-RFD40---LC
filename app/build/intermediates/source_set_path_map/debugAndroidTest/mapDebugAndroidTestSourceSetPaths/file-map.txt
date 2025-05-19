@@ -1,0 +1,4 @@
+com.zebra.rfid.demo.sdksample.test.app-androidTest-0 C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\build\generated\res\resValues\androidTest\debug
+com.zebra.rfid.demo.sdksample.test.app-mergeDebugAndroidTestResources-1 C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
+com.zebra.rfid.demo.sdksample.test.app-mergeDebugAndroidTestResources-2 C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
+com.zebra.rfid.demo.sdksample.test.app-debugAndroidTest-3 C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\build\intermediates\merged_res\debugAndroidTest\mergeDebugAndroidTestResources

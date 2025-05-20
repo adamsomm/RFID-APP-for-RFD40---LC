@@ -281,98 +281,7 @@ class RFIDHandler implements IDcsSdkApiDelegate, Readers.RFIDReaderEventHandler 
         return sb.toString();
     }
 
-    /*public void writeTag(String dataToWrite) {
-        if (reader == null || !isReaderConnected()) {
-            context.sendToast("Reader not connected.");
-            return;
-        }
 
-        // Use "123456" as default if no input is provided
-        String plainText = (dataToWrite == null || dataToWrite.isEmpty()) ? "300833B2DDD9014000000000" : dataToWrite;
-
-        try {
-            // Stop any ongoing inventory
-            stopInventory();
-            Thread.sleep(100); // Small delay to ensure inventory is stopped
-
-            // Perform a quick inventory to get tags
-//            reader.Actions.Inventory.perform();
-//            Thread.sleep(500); // Longer wait to ensure tag detection
-
-            // Get the tags (limit to 1 tag)
-//            TagData[] tags = reader.Actions.getReadTags(1);
-//            context.sendToast("the tag in range is"+tags[0].getTagID());
-//            if (tags == null || tags.length == 0) {
-//                context.sendToast("No tag in range. Place a single tag near the reader.");
-//                return;
-//            }
-            if (MainActivity.fristTagScan == null) {
-                context.sendToast("No tag in range. Place a single tag near the reader.");
-                return;
-            }
-
-//            String targetTagID = tags[0].getTagID();
-            String targetTagID = MainActivity.fristTagScan;
-            if (targetTagID == null || targetTagID.isEmpty()) {
-                context.sendToast("No valid tag scanned.");
-                Log.e(TAG, "Write failed: targetTagID is null or empty.");
-                return;
-            }
-            context.sendToast("Tag in range: " + targetTagID);
-            Log.d(TAG, "Attempting to write to tag: " + targetTagID);
-
-            // Convert text to hex (EPC format)
-//            String hexData = stringToHex(plainText);
-            String hexData = plainText;
-            context.sendToast("hexData = " + hexData);
-            // EPC requires at least 6 hex chars (3 words)
-            if (hexData.length() < 6) {
-                hexData = String.format("%-6s", hexData).replace(' ', '0');
-            }
-
-            // Create write parameters
-            TagAccess.WriteAccessParams writeParams = new TagAccess().new WriteAccessParams();
-            writeParams.setAccessPassword(Long.parseLong("0",16)); // Default password
-            writeParams.setMemoryBank(MEMORY_BANK.MEMORY_BANK_EPC);
-            writeParams.setOffset(2); // Skip PC and CRC bits (first 2 bytes)
-            writeParams.setWriteData(hexData);
-            writeParams.setWriteRetries(3);
-            writeParams.setWriteDataLength(hexData.length() / 4);
-
-            // Execute the write operation with timeout
-            if (writeParams == null) {
-                context.sendToast("Write parameters not set.");
-                Log.e(TAG, "Write failed: writeParams is null.");
-                return;
-            }
-            TagData tagData = null;
-            boolean useTIDfilter = true;
-
-//            reader.Actions.TagAccess.writeWait(targetTagID, writeParams, null, null);
-            try {
-                reader.Actions.TagAccess.writeWait(targetTagID, writeParams, null, tagData, true, useTIDfilter);
-                Log.d(TAG, "Write successful. Result: ");
-            } catch (InvalidUsageException | OperationFailureException e) {
-                Log.e(TAG, "Write failed: " + e.getMessage());
-            }
-
-            context.sendToast("Successfully wrote '" + plainText + "' to " + targetTagID);
-            Log.d(TAG, "Write successful for tag: " + targetTagID);
-
-//        } catch (InvalidUsageException e) {
-//            Log.e(TAG, "Invalid usage", e);
-//            context.sendToast("Invalid parameters: " + e.getMessage());
-//        } catch (OperationFailureException e) {
-//            Log.e(TAG, "Operation failed", e);
-//            context.sendToast("Write failed: " + e.getVendorMessage());
-        } catch (Exception e) {
-            Log.e(TAG, "General error", e);
-            context.sendToast("Error: " + e.getMessage());
-        } finally {
-            // Restart inventory
-//            performInventory();
-        }
-    }*/
     // configuration
     private void setAntennaPower(int power) {
         Log.d(TAG, "setAntennaPower " + power);
@@ -438,7 +347,7 @@ class RFIDHandler implements IDcsSdkApiDelegate, Readers.RFIDReaderEventHandler 
     //
 // method to write data
 //
-    private void writeTag(String sourceEPC, String Password, MEMORY_BANK memory_bank, String targetData, int offset) {
+    private Boolean writeTag(String sourceEPC, String Password, MEMORY_BANK memory_bank, String targetData, int offset) {
         Log.d(TAG, "WriteTag " + targetData);
         try {
             TagData tagData = null;
@@ -458,23 +367,38 @@ class RFIDHandler implements IDcsSdkApiDelegate, Readers.RFIDReaderEventHandler 
             // 6th parameter should be true in case of changing EPC ID it self i.e. source and target both is EPC
             boolean useTIDfilter = memory_bank == MEMORY_BANK.MEMORY_BANK_EPC;
             reader.Actions.TagAccess.writeWait(tagId, writeAccessParams, null, tagData, true, useTIDfilter);
+            return true;
         } catch (InvalidUsageException e) {
             e.printStackTrace();
         } catch (OperationFailureException e) {
             e.printStackTrace();
         }
+        return false;
     }
     void WriteEPC() {
-        // one time setup to suite the access operation, if reader is already in that state it can be avoided
-        setAccessOperationConfiguration();
-        //
+        setAccessOperationConfiguration(); // Set required access config
         String EPC = MainActivity.fristTagScan;
-        String data = "3005FB63AC1F3681EC880468";
-        String password = "0";
-        // perform write, offset is two for EPC ID
-        writeTag(EPC, password, MEMORY_BANK.MEMORY_BANK_EPC, data, 2);
-    }
+        if (EPC == null || EPC.isEmpty()) {
+            context.sendToast("No tag scanned to write.");
+            Log.w(TAG, "WriteEPC aborted: No tag available.");
+            return;
+        }
+        context.sendToast("Writing EPC: " + EPC);
 
+        String data = "3005FB63AC1F3681EC880468"; // Sample data
+        String password = "0"; // Default password
+
+        boolean success = writeTag(EPC, password, MEMORY_BANK.MEMORY_BANK_EPC, data, 2);
+        if (success) {
+            context.sendToast("Write successful.");
+            stopInventory();
+            connect();
+        } else {
+            context.sendToast("Write failed. Reader state will be reset.");
+            stopInventory();
+            connect();
+        }
+    }
     public void setPreFilters() {
         Log.d("setPrefilter", "setPrefilter...");
         PreFilters.PreFilter[] preFilterArray = new PreFilters.PreFilter[4];
@@ -1304,7 +1228,7 @@ class RFIDHandler implements IDcsSdkApiDelegate, Readers.RFIDReaderEventHandler 
             }
             reader.Actions.Inventory.perform();
             isInventoryRunning = true;
-            context.sendToast("Inventory started.");
+//            context.sendToast("Inventory started.");
         } catch (Exception e) {
             e.printStackTrace();
             context.sendToast("Failed to start inventory: " + e.getMessage());
@@ -1321,7 +1245,7 @@ class RFIDHandler implements IDcsSdkApiDelegate, Readers.RFIDReaderEventHandler 
         try {
             reader.Actions.Inventory.stop();
             isInventoryRunning = false;
-            context.sendToast("Inventory stopped.");
+//            context.sendToast("Inventory stopped.");
         } catch (Exception e) {
             e.printStackTrace();
             context.sendToast("Failed to stop inventory: " + e.getMessage());

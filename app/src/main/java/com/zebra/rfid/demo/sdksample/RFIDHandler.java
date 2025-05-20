@@ -5,6 +5,8 @@ import android.util.Log;
 import android.widget.TextView;
 
 import com.zebra.rfid.api3.Antennas;
+import com.zebra.rfid.api3.BEEPER_VOLUME;
+import com.zebra.rfid.api3.DYNAMIC_POWER_OPTIMIZATION;
 import com.zebra.rfid.api3.ENUM_TRANSPORT;
 import com.zebra.rfid.api3.FILTER_ACTION;
 import com.zebra.rfid.api3.HANDHELD_TRIGGER_EVENT_TYPE;
@@ -174,6 +176,18 @@ class RFIDHandler implements IDcsSdkApiDelegate, Readers.RFIDReaderEventHandler 
         return "Session set to S2";
     }
 
+    private void disableBeeper() {
+        try {
+            if (reader != null && reader.isConnected()) {
+                reader.Config.setBeeperVolume(BEEPER_VOLUME.QUIET_BEEP);
+                Log.d(TAG, "Beeper disabled.");
+            }
+        } catch (InvalidUsageException | OperationFailureException e) {
+            Log.e(TAG, "Error disabling beeper: " + e.getMessage(), e);
+        }
+    }
+
+
     public String Defaults() {
         // check reader connection
         if (!isReaderConnected())
@@ -267,7 +281,7 @@ class RFIDHandler implements IDcsSdkApiDelegate, Readers.RFIDReaderEventHandler 
         return sb.toString();
     }
 
-    public void writeTag(String dataToWrite) {
+    /*public void writeTag(String dataToWrite) {
         if (reader == null || !isReaderConnected()) {
             context.sendToast("Reader not connected.");
             return;
@@ -318,10 +332,12 @@ class RFIDHandler implements IDcsSdkApiDelegate, Readers.RFIDReaderEventHandler 
 
             // Create write parameters
             TagAccess.WriteAccessParams writeParams = new TagAccess().new WriteAccessParams();
+            writeParams.setAccessPassword(Long.parseLong("0",16)); // Default password
             writeParams.setMemoryBank(MEMORY_BANK.MEMORY_BANK_EPC);
-            writeParams.setOffset(1); // Skip PC and CRC bits (first 2 bytes)
+            writeParams.setOffset(2); // Skip PC and CRC bits (first 2 bytes)
             writeParams.setWriteData(hexData);
-            writeParams.setAccessPassword(0); // Default password
+            writeParams.setWriteRetries(3);
+            writeParams.setWriteDataLength(hexData.length() / 4);
 
             // Execute the write operation with timeout
             if (writeParams == null) {
@@ -329,12 +345,13 @@ class RFIDHandler implements IDcsSdkApiDelegate, Readers.RFIDReaderEventHandler 
                 Log.e(TAG, "Write failed: writeParams is null.");
                 return;
             }
-            TagData result = new TagData();
+            TagData tagData = null;
+            boolean useTIDfilter = true;
 
 //            reader.Actions.TagAccess.writeWait(targetTagID, writeParams, null, null);
             try {
-                reader.Actions.TagAccess.writeWait(targetTagID, writeParams, null, result);
-                Log.d(TAG, "Write successful. Result: " + result.getOpStatus());
+                reader.Actions.TagAccess.writeWait(targetTagID, writeParams, null, tagData, true, useTIDfilter);
+                Log.d(TAG, "Write successful. Result: ");
             } catch (InvalidUsageException | OperationFailureException e) {
                 Log.e(TAG, "Write failed: " + e.getMessage());
             }
@@ -355,6 +372,107 @@ class RFIDHandler implements IDcsSdkApiDelegate, Readers.RFIDReaderEventHandler 
             // Restart inventory
 //            performInventory();
         }
+    }*/
+    // configuration
+    private void setAntennaPower(int power) {
+        Log.d(TAG, "setAntennaPower " + power);
+        try {
+            // set antenna configurations
+            Antennas.AntennaRfConfig config = reader.Config.Antennas.getAntennaRfConfig(1);
+            config.setTransmitPowerIndex(power);
+            config.setrfModeTableIndex(0);
+            config.setTari(0);
+            reader.Config.Antennas.setAntennaRfConfig(1, config);
+        } catch (InvalidUsageException e) {
+            e.printStackTrace();
+        } catch (OperationFailureException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void setSingulation(SESSION session, INVENTORY_STATE state) {
+        Log.d(TAG, "setSingulation " + session);
+        try {
+            // Set the singulation control
+            Antennas.SingulationControl s1_singulationControl = reader.Config.Antennas.getSingulationControl(1);
+            s1_singulationControl.setSession(session);
+            s1_singulationControl.Action.setInventoryState(state);
+            s1_singulationControl.Action.setSLFlag(SL_FLAG.SL_ALL);
+            reader.Config.Antennas.setSingulationControl(1, s1_singulationControl);
+        } catch (InvalidUsageException e) {
+            e.printStackTrace();
+        } catch (OperationFailureException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void setDPO(boolean bEnable) {
+        Log.d(TAG, "setDPO " + bEnable);
+        try {
+            // control the DPO
+            reader.Config.setDPOState(bEnable ? DYNAMIC_POWER_OPTIMIZATION.ENABLE : DYNAMIC_POWER_OPTIMIZATION.DISABLE);
+        } catch (InvalidUsageException e) {
+            e.printStackTrace();
+        } catch (OperationFailureException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void setAccessOperationConfiguration() {
+        // set required power and profile
+        setAntennaPower(240);
+        // in case of RFD8500 disable DPO
+        if (reader.getHostName().contains("RFD8500"))
+            setDPO(false);
+        //
+        try {
+            // set access operation time out value to 1 second, so reader will tries for a second
+            // to perform operation before timing out
+            reader.Config.setAccessOperationWaitTimeout(1000);
+        } catch (InvalidUsageException e) {
+            e.printStackTrace();
+        } catch (OperationFailureException e) {
+            e.printStackTrace();
+        }
+    }
+    //
+// method to write data
+//
+    private void writeTag(String sourceEPC, String Password, MEMORY_BANK memory_bank, String targetData, int offset) {
+        Log.d(TAG, "WriteTag " + targetData);
+        try {
+            TagData tagData = null;
+            String tagId = sourceEPC;
+            TagAccess tagAccess = new TagAccess();
+            TagAccess.WriteAccessParams writeAccessParams = tagAccess.new WriteAccessParams();
+            String writeData = targetData; //write data in string
+            writeAccessParams.setAccessPassword(Long.parseLong(Password,16));
+            writeAccessParams.setMemoryBank(memory_bank);
+            writeAccessParams.setOffset(offset); // start writing from word offset 0
+            writeAccessParams.setWriteData(writeData);
+            // set retries in case of partial write happens
+            writeAccessParams.setWriteRetries(3);
+            // data length in words
+            writeAccessParams.setWriteDataLength(writeData.length() / 4);
+            // 5th parameter bPrefilter flag is true which means API will apply pre filter internally
+            // 6th parameter should be true in case of changing EPC ID it self i.e. source and target both is EPC
+            boolean useTIDfilter = memory_bank == MEMORY_BANK.MEMORY_BANK_EPC;
+            reader.Actions.TagAccess.writeWait(tagId, writeAccessParams, null, tagData, true, useTIDfilter);
+        } catch (InvalidUsageException e) {
+            e.printStackTrace();
+        } catch (OperationFailureException e) {
+            e.printStackTrace();
+        }
+    }
+    void WriteEPC() {
+        // one time setup to suite the access operation, if reader is already in that state it can be avoided
+        setAccessOperationConfiguration();
+        //
+        String EPC = MainActivity.fristTagScan;
+        String data = "3005FB63AC1F3681EC880468";
+        String password = "0";
+        // perform write, offset is two for EPC ID
+        writeTag(EPC, password, MEMORY_BANK.MEMORY_BANK_EPC, data, 2);
     }
 
     public void setPreFilters() {
@@ -935,6 +1053,7 @@ class RFIDHandler implements IDcsSdkApiDelegate, Readers.RFIDReaderEventHandler 
                     // Establish connection to the RFID Reader
                     reader.connect();
                     ConfigureReader();
+                    disableBeeper();
 
                     //Call this function if the readerdevice supports scanner to setup scanner SDK
                     //setupScannerSDK();
@@ -1270,16 +1389,19 @@ class RFIDHandler implements IDcsSdkApiDelegate, Readers.RFIDReaderEventHandler 
             TagData[] myTags = reader.Actions.getReadTags(100);
             if (myTags != null) {
                 synchronized (scannedTags) {
+                    boolean newTagsFound = false;
                     for (int index = 0; index < myTags.length; index++) {
-                        String tagId = myTags[index].getTagID();
-                        if (!scannedTags.contains(tagId)) {
-                            scannedTags.add(tagId);
-                            Log.d(TAG, "Tag ID: " + tagId + " RSSI value: " + myTags[index].getPeakRSSI());
+                        String tagID = myTags[index].getTagID();
+                        if (!scannedTags.contains(tagID)) {
+                            scannedTags.add(tagID);
+                            newTagsFound = true;
+                            Log.d(TAG, "New Tag Found: " + tagID + " RSSI value: "+ myTags[index].getPeakRSSI());
                         }
                     }
+                   if(newTagsFound) {
+                       new AsyncDataUpdate().execute(myTags);
+                   }
                 }
-                // Only send unique tags to the UI
-                new AsyncDataUpdate().execute(myTags);
             }
         }
 

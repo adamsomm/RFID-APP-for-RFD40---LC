@@ -140,8 +140,7 @@ public class MainActivity extends AppCompatActivity implements RFIDHandler.Respo
     }
 
     public void writeToTag(View view) {
-        // This will write "123456" by default
-        rfidHandler.writeTag("");
+        rfidHandler.WriteEPC();
 
         // Or if you want to use the input field:
         // TextView inputSerial = findViewById(R.id.inputSerial);
@@ -162,34 +161,84 @@ public class MainActivity extends AppCompatActivity implements RFIDHandler.Respo
         rfidHandler.stopInventory();
     }
 
+    private StringBuilder tagListBuilder = new StringBuilder();
+
     @Override
     public void handleTagdata(TagData[] tagData) {
+        if (tagData == null || tagData.length == 0) return;
+
         fristTagScan = tagData[0].getTagID();
-        final StringBuilder sb = new StringBuilder();
-        for (int index = 0; index < tagData.length; index++) {
-            sb.append(tagData[index].getTagID() + " , RSSI: " + tagData[index].getPeakRSSI() + "\n");
+
+        synchronized (this) {
+            // Clear the builder only if we're starting a new inventory
+            if (textrfid.getText().toString().equals("Scanning...")) {
+                tagListBuilder = new StringBuilder();
+            }
+
+            // Append new tags to the builder
+            for (TagData tag : tagData) {
+                String tagEntry = tag.getTagID() + " , RSSI: " + tag.getPeakRSSI() + "\n";
+                if (tagListBuilder.indexOf(tagEntry) < 0) {
+                    tagListBuilder.append(tagEntry);
+                }
+            }
         }
+
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                textrfid.setText(sb.toString()); // Replace instead of append to avoid duplicates
+                textrfid.setText(tagListBuilder.toString());
             }
         });
     }
-
+    public void clearTagList(View view) {
+        synchronized (this) {
+            tagListBuilder = new StringBuilder();
+            textrfid.setText("");
+        }
+        rfidHandler.stopInventory();
+    }
+    //    @Override
+//    public void handleTagdata(TagData[] tagData) {
+//        fristTagScan = tagData[0].getTagID();
+//        final StringBuilder sb = new StringBuilder();
+//        for (int index = 0; index < tagData.length; index++) {
+//            sb.append(tagData[index].getTagID() + " , RSSI: " + tagData[index].getPeakRSSI() + "\n");
+//        }
+//        runOnUiThread(new Runnable() {
+//            @Override
+//            public void run() {
+//                textrfid.setText(sb.toString()); // Replace instead of append to avoid duplicates
+//            }
+//        });
+//    }
     @Override
     public void handleTriggerPress(boolean pressed) {
         if (pressed) {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    textrfid.setText("");
+                    textrfid.setText("Scanning...");
                 }
             });
             rfidHandler.performInventory();
-        } else
+        } else {
             rfidHandler.stopInventory();
+        }
     }
+//    @Override
+//    public void handleTriggerPress(boolean pressed) {
+//        if (pressed) {
+//            runOnUiThread(new Runnable() {
+//                @Override
+//                public void run() {
+//                    textrfid.setText("");
+//                }
+//            });
+//            rfidHandler.performInventory();
+//        } else
+//            rfidHandler.stopInventory();
+//    }
 
     @Override
     public void barcodeData(String val) {

@@ -64,6 +64,8 @@ class RFIDHandler implements IDcsSdkApiDelegate, Readers.RFIDReaderEventHandler 
     private int MAX_POWER = 270;
     private final int DEVICE_STD_MODE = 0;
     private final int DEVICE_PREMIUM_PLUS_MODE = 1;
+    private volatile boolean isOperationInProgress = false;
+
 
     // In case of RFD8500 change reader name with intended device below from list of paired RFD8500
     // If barcode scan is available in RFD8500, for barcode scanning change mode using mode button on RFD8500 device. By default it is set to RFID mode
@@ -364,84 +366,123 @@ class RFIDHandler implements IDcsSdkApiDelegate, Readers.RFIDReaderEventHandler 
         }
     }
 
-    private Boolean writeTag(String sourceEPC, String Password, MEMORY_BANK memory_bank, String targetData, int offset) {
-        Log.d(TAG, "WriteTag " + targetData);
-        try {
-            TagData tagData = null;
-            String tagId = sourceEPC;
-            TagAccess tagAccess = new TagAccess();
-            TagAccess.WriteAccessParams writeAccessParams = tagAccess.new WriteAccessParams();
-            String writeData = targetData; //write data in string
-
-            try {
-                writeAccessParams.setAccessPassword(Long.parseLong(Password, 16));
-            } catch (NumberFormatException e) {
-                Log.e(TAG, "Invalid password format", e);
-                context.sendToast("Error: Invalid password format");
-                return false;
-            }
-
-            writeAccessParams.setMemoryBank(memory_bank);
-            writeAccessParams.setOffset(offset);
-            writeAccessParams.setWriteData(writeData);
-            writeAccessParams.setWriteRetries(3);
-            writeAccessParams.setWriteDataLength(writeData.length() / 4);
-            boolean useTIDfilter = memory_bank == MEMORY_BANK.MEMORY_BANK_EPC;
-
-            reader.Actions.TagAccess.writeWait(tagId, writeAccessParams, null, tagData, true, useTIDfilter);
-            return true;
-        } catch (InvalidUsageException e) {
-            Log.e(TAG, "Invalid usage while writing tag", e);
-            context.sendToast("Error: Invalid tag write configuration");
-        } catch (OperationFailureException e) {
-            Log.e(TAG, "Operation failed while writing tag", e);
-            context.sendToast(e.getVendorMessage());
-        } catch (Exception e) {
-            Log.e(TAG, "Unexpected error while writing tag", e);
-            context.sendToast("Error: Unexpected error writing to tag");
+    public boolean blockWriteTag(String tagId) {
+        if (isOperationInProgress) {
+            Log.w(TAG, "Another operation is in progress");
+            return false;
         }
+        stopInventory();
+        isOperationInProgress = true;
+        try {
+        TagData tagData = null;
+        TagAccess tagAccess = new TagAccess();
+        TagAccess.WriteAccessParams writeAccessParams = tagAccess.new WriteAccessParams();
+        String writeData = "F***ingFinally"; // Sample data
+//        String password = "0";
+        writeAccessParams.setAccessPassword(0);
+        writeAccessParams.setMemoryBank(MEMORY_BANK.MEMORY_BANK_EPC);
+        writeAccessParams.setOffset(2); // start writing from word offset 2
+        writeAccessParams.setWriteData(writeData);
+// data length in words
+        writeAccessParams.setWriteDataLength(writeData.length() / 4);
+// antenna Info is null – performs on all antenna
+        reader.Actions.TagAccess.writeWait(tagId, writeAccessParams, null, tagData);
+        return true;
+    } catch (InvalidUsageException e) {
+        Log.e(TAG, "Invalid usage while writing tag", e);
+        context.sendToast("Error: Invalid tag write configuration");
+    } catch (OperationFailureException e) {
+        Log.e(TAG, "Operation failed while writing tag", e);
+        context.sendToast(e.getVendorMessage());
+    } catch (Exception e) {
+        Log.e(TAG, "Unexpected error while writing tag", e);
+        context.sendToast("Error: Unexpected error writing to tag");
+    }finally {
+        isOperationInProgress = false;
+    }
         return false;
+
     }
 
-    void WriteEPC() {
-        try {
-            setAccessOperationConfiguration(); // Set required access config
-            String EPC = MainActivity.fristTagScan;
-            if (EPC == null || EPC.isEmpty()) {
-                context.sendToast("No tag scanned to write.");
-                Log.w(TAG, "WriteEPC aborted: No tag available.");
-                return;
-            }
 
-            context.sendToast("Writing EPC: " + EPC);
-            String data = "111122223333444455556666"; // Sample data
-            String password = "0"; // Default password
 
-            // Validate data length is multiple of 4
-            if (data.length() % 4 != 0) {
-                context.sendToast("Error: Data length must be multiple of 4");
-                Log.e(TAG, "WriteEPC failed: Invalid data length");
-                return;
-            }
-
-            boolean success = writeTag(EPC, password, MEMORY_BANK.MEMORY_BANK_EPC, data, 2);
-            if (success) {
-                context.sendToast("Write successful.");
-            } else {
-//                context.sendToast("Write failed.");
-            }
-
-            // Reset reader state regardless of success/failure
-            stopInventory();
-            connect();
-
-        } catch (Exception e) {
-            Log.e(TAG, "Unexpected error in WriteEPC", e);
-            context.sendToast("Error: Unexpected error during write operation");
-            stopInventory();
-            connect();
-        }
-    }
+//    private Boolean writeTag(String sourceEPC, String Password, MEMORY_BANK memory_bank, String targetData, int offset) {
+//        if (isOperationInProgress) {
+//            context.sendToast("Operation in Progress - Command not Allowed");
+//            return false;
+//        }
+//        isOperationInProgress = true;
+//        try {
+//            TagData tagData = null;
+//            String tagId = sourceEPC;
+//            TagAccess tagAccess = new TagAccess();
+//            TagAccess.WriteAccessParams writeAccessParams = tagAccess.new WriteAccessParams();
+//            String writeData = targetData; //write data in string
+//
+//            try {
+//                writeAccessParams.setAccessPassword(Long.parseLong(Password, 16));
+//            } catch (NumberFormatException e) {
+//                Log.e(TAG, "Invalid password format", e);
+//                context.sendToast("Error: Invalid password format");
+//                return false;
+//            }
+//
+//            writeAccessParams.setMemoryBank(memory_bank);
+//            writeAccessParams.setOffset(offset);
+//            writeAccessParams.setWriteData(writeData);
+//            writeAccessParams.setWriteRetries(1);
+//            writeAccessParams.setWriteDataLength(writeData.length() / 4);
+//            boolean useTIDfilter = memory_bank == MEMORY_BANK.MEMORY_BANK_EPC;
+//
+//            reader.Actions.TagAccess.writeWait(tagId, writeAccessParams, null, tagData, true, useTIDfilter);
+//            return true;
+//        } catch (InvalidUsageException e) {
+//            Log.e(TAG, "Invalid usage while writing tag", e);
+//            context.sendToast("Error: Invalid tag write configuration");
+//        } catch (OperationFailureException e) {
+//            Log.e(TAG, "Operation failed while writing tag", e);
+//            context.sendToast(e.getVendorMessage());
+//        } catch (Exception e) {
+//            Log.e(TAG, "Unexpected error while writing tag", e);
+//            context.sendToast("Error: Unexpected error writing to tag");
+//        }finally {
+//            isOperationInProgress = false;
+//        }
+//        return false;
+//    }
+//
+//    void WriteEPC() throws InterruptedException {
+//        if (isInventoryRunning){
+//            stopInventory();
+//            Thread.sleep(100);
+//        }
+//        try {
+//            setAccessOperationConfiguration(); // Set required access config
+//            String EPC = MainActivity.fristTagScan;
+//            if (EPC == null || EPC.isEmpty()) {
+//                context.sendToast("No tag scanned to write.");
+//                Log.w(TAG, "WriteEPC aborted: No tag available.");
+//                return;
+//            }
+//
+//            context.sendToast("Writing EPC: " + EPC);
+//            String data = "111122223333444455556666"; // Sample data
+//            String password = "0"; // Default password
+//
+//            boolean success = writeTag(EPC, password, MEMORY_BANK.MEMORY_BANK_EPC, data, 2);
+//            if (success) {
+//                context.sendToast("Write successful.");
+//            } else {
+////                context.sendToast("Write failed.");
+//            }
+//
+//        } catch (Exception e) {
+//            Log.e(TAG, "Unexpected error in WriteEPC", e);
+//            context.sendToast("Error: Unexpected error during write operation");
+//            stopInventory();
+//            connect();
+//        }
+//    }
     public void setPreFilters() {
         Log.d("setPrefilter", "setPrefilter...");
         PreFilters.PreFilter[] preFilterArray = new PreFilters.PreFilter[4];
@@ -1270,6 +1311,7 @@ class RFIDHandler implements IDcsSdkApiDelegate, Readers.RFIDReaderEventHandler 
                 scannedTags.clear(); // Clear previously scanned tags
             }
             reader.Actions.Inventory.perform();
+            isOperationInProgress = true;
             isInventoryRunning = true;
 //            context.sendToast("Inventory started.");
         } catch (Exception e) {
@@ -1281,13 +1323,14 @@ class RFIDHandler implements IDcsSdkApiDelegate, Readers.RFIDReaderEventHandler 
 
     public synchronized void stopInventory() {
         if (!isInventoryRunning) {
-//            context.sendToast("Inventory is not running.");
+            context.sendToast("Inventory is not running.");
             return;
         }
 
         try {
             reader.Actions.Inventory.stop();
             isInventoryRunning = false;
+            isOperationInProgress = false;
 //            context.sendToast("Inventory stopped.");
         } catch (Exception e) {
             e.printStackTrace();

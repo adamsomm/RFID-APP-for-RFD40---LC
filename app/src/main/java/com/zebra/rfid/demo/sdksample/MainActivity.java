@@ -142,9 +142,9 @@ public class MainActivity extends AppCompatActivity implements RFIDHandler.Respo
         rfidHandler.performInventory();
     }
 
-    public void writeToTag(View view) {
-        rfidHandler.WriteEPC();
-
+    public void writeToTag(View view) throws InterruptedException {
+//        rfidHandler.WriteEPC();
+        rfidHandler.blockWriteTag(fristTagScan);
         // Or if you want to use the input field:
         // TextView inputSerial = findViewById(R.id.inputSerial);
         // rfidHandler.writeTag(inputSerial.getText().toString());

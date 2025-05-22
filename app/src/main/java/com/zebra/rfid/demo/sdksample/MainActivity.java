@@ -143,79 +143,155 @@ public class MainActivity extends AppCompatActivity implements RFIDHandler.Respo
     }
 
     public void writeToTag(View view) throws InterruptedException {
-//        rfidHandler.WriteEPC();
-        rfidHandler.blockWriteTag(fristTagScan);
+//        rfidHandler.writeEPC(fristTagScan, "123456781234567812345678");
         // Or if you want to use the input field:
-        // TextView inputSerial = findViewById(R.id.inputSerial);
-        // rfidHandler.writeTag(inputSerial.getText().toString());
-    }
-
-    public void scanCode(View view) {
-        rfidHandler.scanCode();
+        TextView inputSerial = findViewById(R.id.inputSerial);
+        String inputHexString = inputSerial.getText().toString();
+        String inputASCIIString = asciiToHex(inputHexString);
+        rfidHandler.writeEPC(fristTagScan, inputASCIIString);
 
     }
 
+    public String hexToASCII(String hexString) {
+        if (hexString == null || hexString.isEmpty()) {
+            return "";
+        }
+        if (hexString.length() % 2 != 0) {// each ASCII value is 2 hex digits
+            System.err.println("Hex string must have an even number of characters for ASCII conversion.");
+            return "";
+        }
+        if (hexString.length() < 24) {
+            // Pad with '20' until length is 24
+            while (hexString.length() < 24) {
+                hexString += "20";
+            }
+            // Trim in case we overshoot 24 characters
+            if (hexString.length() > 24) {
+                hexString = hexString.substring(0, 24);
+            }
+        } else if (hexString.length() > 24) {
+            // Trim the string to 24 characters
+            hexString = hexString.substring(0, 24);
+        }
+        StringBuilder asciiString = new StringBuilder();
+        try {
+            for (int i = 0; i < hexString.length(); i += 2) {
+                String hexPair = hexString.substring(i, i + 2);
+                int decimal = Integer.parseInt(hexPair, 16);
+                asciiString.append((char) decimal);
+            }
+        }catch (NumberFormatException e){
+            System.err.println("Invalid hex string: " + hexString);
+            return "";
+    }
+        return asciiString.toString();
+}
+    public String asciiToHex(String asciiString) {
+        if (asciiString == null || asciiString.isEmpty()) {
+            return "";
+        }
 
-    public void testFunction(View view) {
-        rfidHandler.testFunction();
+        StringBuilder hexBuilder = new StringBuilder();
+        try {
+            for (int i = 0; i < asciiString.length(); i++) {
+                int ascii = (int) asciiString.charAt(i);
+                String hex = Integer.toHexString(ascii).toUpperCase();
+                if (hex.length() == 1) {
+                    hexBuilder.append("0"); // Ensure two-digit hex
+                }
+                hexBuilder.append(hex);
+            }
+        } catch (Exception e) {
+            System.err.println("Error converting ASCII to Hex: " + e.getMessage());
+            return "";
+        }
+
+        String hexString = hexBuilder.toString();
+
+        if (hexString.length() < 24) {
+            // Pad with '20' until length is 24
+            while (hexString.length() < 24) {
+                hexString += "20";
+            }
+            // Trim in case we overshoot 24 characters
+            if (hexString.length() > 24) {
+                hexString = hexString.substring(0, 24);
+            }
+        } else if (hexString.length() > 24) {
+            // Trim the string to 24 characters
+            hexString = hexString.substring(0, 24);
+        }
+
+        return hexString;
     }
 
-    public void StopInventory(View view) {
+public void scanCode(View view) {
+    rfidHandler.scanCode();
+
+}
+
+
+public void testFunction(View view) {
+    rfidHandler.testFunction();
+}
+
+public void StopInventory(View view) {
+    rfidHandler.stopInventory();
+}
+
+private StringBuilder tagListBuilder = new StringBuilder();
+private final Set<String> seenTags = new HashSet<>();
+
+@Override
+public void handleTagdata(TagData[] tagData) {
+    if (tagData == null || tagData.length == 0) return;
+
+    fristTagScan = tagData[0].getTagID();
+
+    synchronized (this) {
+        // Clear the builder only if we're starting a new inventory
+        if (textrfid.getText().toString().equals("Scanning...")) {
+            tagListBuilder = new StringBuilder();
+            seenTags.clear(); // Reset duplicates tracking
+        }
+
+        // Append new tags to the builder
+        for (TagData tag : tagData) {
+            String tagASCII = hexToASCII(tag.getTagID());
+//                if (tag.getPeakRSSI() > -100) {
+            String tagEntry = tagASCII + " , RSSI: " + tag.getPeakRSSI() + "\n";
+            String uniqueID = tag.getTagID();
+            // Only append if not already seen
+            if (seenTags.add(uniqueID)) {
+                tagListBuilder.append(tagEntry).append("\n");
+            }
+//                }
+        }
+
+
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                textrfid.setText(tagListBuilder.toString());
+            }
+        });
+    }
+}
+
+@Override
+public void handleTriggerPress(boolean pressed) {
+    if (pressed) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                textrfid.setText("Scanning...");
+            }
+        });
+        rfidHandler.performInventory();
+    } else {
         rfidHandler.stopInventory();
     }
-
-    private StringBuilder tagListBuilder = new StringBuilder();
-    private final Set<String> seenTags = new HashSet<>();
-
-    @Override
-    public void handleTagdata(TagData[] tagData) {
-        if (tagData == null || tagData.length == 0) return;
-
-        fristTagScan = tagData[0].getTagID();
-
-        synchronized (this) {
-            // Clear the builder only if we're starting a new inventory
-            if (textrfid.getText().toString().equals("Scanning...")) {
-                tagListBuilder = new StringBuilder();
-                seenTags.clear(); // Reset duplicates tracking
-            }
-
-            // Append new tags to the builder
-            for (TagData tag : tagData) {
-//                if (tag.getPeakRSSI() > -100) {
-                    String tagEntry = tag.getTagID() + " , RSSI: " + tag.getPeakRSSI() + "\n";
-                    String uniqueID = tag.getTagID();
-                    // Only append if not already seen
-                    if (seenTags.add(uniqueID)) {
-                        tagListBuilder.append(tagEntry).append("\n");
-                    }
-//                }
-            }
-
-
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    textrfid.setText(tagListBuilder.toString());
-                }
-            });
-        }
-    }
-
-    @Override
-    public void handleTriggerPress(boolean pressed) {
-        if (pressed) {
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    textrfid.setText("Scanning...");
-                }
-            });
-            rfidHandler.performInventory();
-        } else {
-            rfidHandler.stopInventory();
-        }
-    }
+}
 //    @Override
 //    public void handleTriggerPress(boolean pressed) {
 //        if (pressed) {
@@ -230,27 +306,27 @@ public class MainActivity extends AppCompatActivity implements RFIDHandler.Respo
 //            rfidHandler.stopInventory();
 //    }
 
-    @Override
-    public void barcodeData(String val) {
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                scanResult.setText("Scan Result : " + val);
-            }
-        });
+@Override
+public void barcodeData(String val) {
+    runOnUiThread(new Runnable() {
+        @Override
+        public void run() {
+            scanResult.setText("Scan Result : " + val);
+        }
+    });
 
-    }
+}
 
-    @Override
-    public void sendToast(String val) {
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                Toast.makeText(MainActivity.this, val, Toast.LENGTH_SHORT).show();
-            }
-        });
+@Override
+public void sendToast(String val) {
+    runOnUiThread(new Runnable() {
+        @Override
+        public void run() {
+            Toast.makeText(MainActivity.this, val, Toast.LENGTH_SHORT).show();
+        }
+    });
 
-    }
+}
 
 
 }

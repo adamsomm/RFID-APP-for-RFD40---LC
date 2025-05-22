@@ -18,6 +18,9 @@ import androidx.core.content.ContextCompat;
 import com.zebra.rfid.api3.TagData;
 import com.zebra.scannercontrol.SDKHandler;
 
+import java.util.HashSet;
+import java.util.Set;
+
 
 /**
  * Sample app to connect to the reader,to do inventory and basic barcode scan
@@ -162,6 +165,7 @@ public class MainActivity extends AppCompatActivity implements RFIDHandler.Respo
     }
 
     private StringBuilder tagListBuilder = new StringBuilder();
+    private final Set<String> seenTags = new HashSet<>();
 
     @Override
     public void handleTagdata(TagData[] tagData) {
@@ -173,45 +177,31 @@ public class MainActivity extends AppCompatActivity implements RFIDHandler.Respo
             // Clear the builder only if we're starting a new inventory
             if (textrfid.getText().toString().equals("Scanning...")) {
                 tagListBuilder = new StringBuilder();
+                seenTags.clear(); // Reset duplicates tracking
             }
 
             // Append new tags to the builder
             for (TagData tag : tagData) {
-                String tagEntry = tag.getTagID() + " , RSSI: " + tag.getPeakRSSI() + "\n";
-                if (tagListBuilder.indexOf(tagEntry) < 0) {
-                    tagListBuilder.append(tagEntry);
-                }
+//                if (tag.getPeakRSSI() > -100) {
+                    String tagEntry = tag.getTagID() + " , RSSI: " + tag.getPeakRSSI() + "\n";
+                    String uniqueID = tag.getTagID();
+                    // Only append if not already seen
+                    if (seenTags.add(uniqueID)) {
+                        tagListBuilder.append(tagEntry).append("\n");
+                    }
+//                }
             }
-        }
 
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                textrfid.setText(tagListBuilder.toString());
-            }
-        });
-    }
-    public void clearTagList(View view) {
-        synchronized (this) {
-            tagListBuilder = new StringBuilder();
-            textrfid.setText("");
+
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    textrfid.setText(tagListBuilder.toString());
+                }
+            });
         }
-        rfidHandler.stopInventory();
     }
-    //    @Override
-//    public void handleTagdata(TagData[] tagData) {
-//        fristTagScan = tagData[0].getTagID();
-//        final StringBuilder sb = new StringBuilder();
-//        for (int index = 0; index < tagData.length; index++) {
-//            sb.append(tagData[index].getTagID() + " , RSSI: " + tagData[index].getPeakRSSI() + "\n");
-//        }
-//        runOnUiThread(new Runnable() {
-//            @Override
-//            public void run() {
-//                textrfid.setText(sb.toString()); // Replace instead of append to avoid duplicates
-//            }
-//        });
-//    }
+
     @Override
     public void handleTriggerPress(boolean pressed) {
         if (pressed) {

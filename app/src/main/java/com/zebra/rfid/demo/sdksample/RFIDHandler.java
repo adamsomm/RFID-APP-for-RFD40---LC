@@ -269,7 +269,6 @@ class RFIDHandler implements IDcsSdkApiDelegate, Readers.RFIDReaderEventHandler 
         //testReadevent();
     }
 
-
     public String stringToHex(String input) {
         if (input == null || input.isEmpty()) {
             return "";
@@ -280,7 +279,6 @@ class RFIDHandler implements IDcsSdkApiDelegate, Readers.RFIDReaderEventHandler 
         }
         return sb.toString();
     }
-
 
     // configuration
     private void setAntennaPower(int power) {
@@ -293,9 +291,14 @@ class RFIDHandler implements IDcsSdkApiDelegate, Readers.RFIDReaderEventHandler 
             config.setTari(0);
             reader.Config.Antennas.setAntennaRfConfig(1, config);
         } catch (InvalidUsageException e) {
-            e.printStackTrace();
+            Log.e(TAG, "Invalid usage while setting antenna power", e);
+            context.sendToast("Error: Invalid antenna configuration");
         } catch (OperationFailureException e) {
-            e.printStackTrace();
+            Log.e(TAG, "Operation failed while setting antenna power", e);
+            context.sendToast("Error: Failed to set antenna power");
+        } catch (Exception e) {
+            Log.e(TAG, "Unexpected error while setting antenna power", e);
+            context.sendToast("Error: Unexpected error setting antenna power");
         }
     }
 
@@ -309,9 +312,14 @@ class RFIDHandler implements IDcsSdkApiDelegate, Readers.RFIDReaderEventHandler 
             s1_singulationControl.Action.setSLFlag(SL_FLAG.SL_ALL);
             reader.Config.Antennas.setSingulationControl(1, s1_singulationControl);
         } catch (InvalidUsageException e) {
-            e.printStackTrace();
+            Log.e(TAG, "Invalid usage while setting singulation", e);
+            context.sendToast("Error: Invalid singulation configuration");
         } catch (OperationFailureException e) {
-            e.printStackTrace();
+            Log.e(TAG, "Operation failed while setting singulation", e);
+            context.sendToast("Error: Failed to set singulation parameters");
+        } catch (Exception e) {
+            Log.e(TAG, "Unexpected error while setting singulation", e);
+            context.sendToast("Error: Unexpected error setting singulation");
         }
     }
 
@@ -321,9 +329,14 @@ class RFIDHandler implements IDcsSdkApiDelegate, Readers.RFIDReaderEventHandler 
             // control the DPO
             reader.Config.setDPOState(bEnable ? DYNAMIC_POWER_OPTIMIZATION.ENABLE : DYNAMIC_POWER_OPTIMIZATION.DISABLE);
         } catch (InvalidUsageException e) {
-            e.printStackTrace();
+            Log.e(TAG, "Invalid usage while setting DPO", e);
+            context.sendToast("Error: Invalid DPO configuration");
         } catch (OperationFailureException e) {
-            e.printStackTrace();
+            Log.e(TAG, "Operation failed while setting DPO", e);
+            context.sendToast("Error: Failed to set DPO state");
+        } catch (Exception e) {
+            Log.e(TAG, "Unexpected error while setting DPO", e);
+            context.sendToast("Error: Unexpected error setting DPO");
         }
     }
 
@@ -331,22 +344,26 @@ class RFIDHandler implements IDcsSdkApiDelegate, Readers.RFIDReaderEventHandler 
         // set required power and profile
         setAntennaPower(240);
         // in case of RFD8500 disable DPO
-        if (reader.getHostName().contains("RFD8500"))
+        if (reader.getHostName().contains("RFD8500")) {
             setDPO(false);
-        //
+        }
+
         try {
             // set access operation time out value to 1 second, so reader will tries for a second
             // to perform operation before timing out
             reader.Config.setAccessOperationWaitTimeout(1000);
         } catch (InvalidUsageException e) {
-            e.printStackTrace();
+            Log.e(TAG, "Invalid usage while setting operation timeout", e);
+            context.sendToast("Error: Invalid timeout configuration");
         } catch (OperationFailureException e) {
-            e.printStackTrace();
+            Log.e(TAG, "Operation failed while setting operation timeout", e);
+            context.sendToast("Error: Failed to set operation timeout");
+        } catch (Exception e) {
+            Log.e(TAG, "Unexpected error while setting operation timeout", e);
+            context.sendToast("Error: Unexpected error setting operation timeout");
         }
     }
-    //
-// method to write data
-//
+
     private Boolean writeTag(String sourceEPC, String Password, MEMORY_BANK memory_bank, String targetData, int offset) {
         Log.d(TAG, "WriteTag " + targetData);
         try {
@@ -355,46 +372,72 @@ class RFIDHandler implements IDcsSdkApiDelegate, Readers.RFIDReaderEventHandler 
             TagAccess tagAccess = new TagAccess();
             TagAccess.WriteAccessParams writeAccessParams = tagAccess.new WriteAccessParams();
             String writeData = targetData; //write data in string
-            writeAccessParams.setAccessPassword(Long.parseLong(Password,16));
+
+            try {
+                writeAccessParams.setAccessPassword(Long.parseLong(Password, 16));
+            } catch (NumberFormatException e) {
+                Log.e(TAG, "Invalid password format", e);
+                context.sendToast("Error: Invalid password format");
+                return false;
+            }
+
             writeAccessParams.setMemoryBank(memory_bank);
-            writeAccessParams.setOffset(offset); // start writing from word offset 0
+            writeAccessParams.setOffset(offset);
             writeAccessParams.setWriteData(writeData);
-            // set retries in case of partial write happens
             writeAccessParams.setWriteRetries(3);
-            // data length in words
             writeAccessParams.setWriteDataLength(writeData.length() / 4);
-            // 5th parameter bPrefilter flag is true which means API will apply pre filter internally
-            // 6th parameter should be true in case of changing EPC ID it self i.e. source and target both is EPC
             boolean useTIDfilter = memory_bank == MEMORY_BANK.MEMORY_BANK_EPC;
+
             reader.Actions.TagAccess.writeWait(tagId, writeAccessParams, null, tagData, true, useTIDfilter);
             return true;
         } catch (InvalidUsageException e) {
-            e.printStackTrace();
+            Log.e(TAG, "Invalid usage while writing tag", e);
+            context.sendToast("Error: Invalid tag write configuration");
         } catch (OperationFailureException e) {
-            e.printStackTrace();
+            Log.e(TAG, "Operation failed while writing tag", e);
+            context.sendToast(e.getVendorMessage());
+        } catch (Exception e) {
+            Log.e(TAG, "Unexpected error while writing tag", e);
+            context.sendToast("Error: Unexpected error writing to tag");
         }
         return false;
     }
+
     void WriteEPC() {
-        setAccessOperationConfiguration(); // Set required access config
-        String EPC = MainActivity.fristTagScan;
-        if (EPC == null || EPC.isEmpty()) {
-            context.sendToast("No tag scanned to write.");
-            Log.w(TAG, "WriteEPC aborted: No tag available.");
-            return;
-        }
-        context.sendToast("Writing EPC: " + EPC);
+        try {
+            setAccessOperationConfiguration(); // Set required access config
+            String EPC = MainActivity.fristTagScan;
+            if (EPC == null || EPC.isEmpty()) {
+                context.sendToast("No tag scanned to write.");
+                Log.w(TAG, "WriteEPC aborted: No tag available.");
+                return;
+            }
 
-        String data = "3005FB63AC1F3681EC880468"; // Sample data
-        String password = "0"; // Default password
+            context.sendToast("Writing EPC: " + EPC);
+            String data = "111122223333444455556666"; // Sample data
+            String password = "0"; // Default password
 
-        boolean success = writeTag(EPC, password, MEMORY_BANK.MEMORY_BANK_EPC, data, 2);
-        if (success) {
-            context.sendToast("Write successful.");
+            // Validate data length is multiple of 4
+            if (data.length() % 4 != 0) {
+                context.sendToast("Error: Data length must be multiple of 4");
+                Log.e(TAG, "WriteEPC failed: Invalid data length");
+                return;
+            }
+
+            boolean success = writeTag(EPC, password, MEMORY_BANK.MEMORY_BANK_EPC, data, 2);
+            if (success) {
+                context.sendToast("Write successful.");
+            } else {
+//                context.sendToast("Write failed.");
+            }
+
+            // Reset reader state regardless of success/failure
             stopInventory();
             connect();
-        } else {
-            context.sendToast("Write failed. Reader state will be reset.");
+
+        } catch (Exception e) {
+            Log.e(TAG, "Unexpected error in WriteEPC", e);
+            context.sendToast("Error: Unexpected error during write operation");
             stopInventory();
             connect();
         }

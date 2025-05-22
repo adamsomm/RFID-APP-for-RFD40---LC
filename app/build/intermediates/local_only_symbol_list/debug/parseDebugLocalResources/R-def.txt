@@ -20,7 +20,6 @@ id Singulation_control
 id TagID
 id TestButton
 id TestButton2
-id TestButton3
 id antenna_settings
 id btnWriteTag
 id button

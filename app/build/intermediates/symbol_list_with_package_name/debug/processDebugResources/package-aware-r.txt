@@ -1802,6 +1802,7 @@ drawable mtrl_popupmenu_background
 drawable mtrl_popupmenu_background_dark
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
+drawable new_logo
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -1823,6 +1824,9 @@ id BOTTOM_START
 id CTRL
 id Default
 id FUNCTION
+id IDtextView
+id ListRSSI
+id ListTagID
 id META
 id NO_DEBUG
 id RSSI
@@ -1919,6 +1923,7 @@ id btnWriteTag
 id button
 id button2
 id button3
+id button4
 id buttonPanel
 id cache_measures
 id cancel_action
@@ -2026,6 +2031,7 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
+id imageView
 id info
 id inputSerial
 id invisible
@@ -2045,6 +2051,7 @@ id line3
 id linear
 id listMode
 id list_item
+id mRecyclerView
 id masked
 id material_clock_display
 id material_clock_face
@@ -2216,6 +2223,7 @@ id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
 id tag_window_insets_animation_callback
+id testButton
 id testStatus
 id test_checkbox_android_button_tint
 id test_checkbox_app_button_tint
@@ -2365,6 +2373,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout list_items
 layout material_chip_input_combo
 layout material_clock_display
 layout material_clock_display_divider
@@ -2427,6 +2436,7 @@ layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
+layout tag_options
 layout test_action_chip
 layout test_chip_zero_corner_radius
 layout test_design_checkbox

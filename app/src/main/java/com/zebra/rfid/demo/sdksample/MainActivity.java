@@ -1,6 +1,9 @@
 package com.zebra.rfid.demo.sdksample;
 
+import static androidx.media.session.MediaButtonReceiver.handleIntent;
+
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -14,10 +17,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.zebra.rfid.api3.TagData;
 import com.zebra.scannercontrol.SDKHandler;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -29,6 +36,11 @@ import java.util.Set;
 
 public class MainActivity extends AppCompatActivity implements RFIDHandler.ResponseHandlerInterface {
 
+    private RecyclerAdapter.RecyclerViewClickListener listener;
+    private ArrayList<ListData> listData;
+    private RecyclerAdapter adapter;
+
+    private RecyclerView recyclerView;
     public TextView statusTextViewRFID = null;
     public TextView textrfid, scanResult;
     RFIDHandler rfidHandler;
@@ -48,7 +60,15 @@ public class MainActivity extends AppCompatActivity implements RFIDHandler.Respo
         textrfid = findViewById(R.id.edittextrfid);
         scanResult = findViewById(R.id.scanResult);
         rfidHandler = new RFIDHandler();
-        //rfidHandler.onCreate(this);
+//        rfidHandler.onCreate(this);
+        recyclerView = findViewById(R.id.mRecyclerView);
+        listData = new ArrayList<>();
+
+//        setUserInfo();
+        setAdapter();
+
+
+
 
 
         //Scanner Initializations
@@ -68,6 +88,34 @@ public class MainActivity extends AppCompatActivity implements RFIDHandler.Respo
         }
 
     }
+
+//    private void setUserInfo() {
+//        listData.add(new ListData("MH1", "38"));
+//        listData.add(new ListData("MH2", "37"));
+//        listData.add(new ListData("MH3", "36"));
+//        listData.add(new ListData("MH4", "35"));
+//        listData.add(new ListData("MH5", "34"));
+//    }
+    private void setAdapter() {
+        setOnClickListener();
+        adapter = new RecyclerAdapter(listData, listener);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(adapter);
+    }
+
+    private void setOnClickListener() {
+        listener = new RecyclerAdapter.RecyclerViewClickListener() {
+            @Override
+            public void onClick(View v, int position) {
+                Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+                intent.putExtra("TagID", listData.get(position).getTagID());
+                startActivity(intent);
+            }
+        };
+    }
+
 
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
 
@@ -141,6 +189,13 @@ public class MainActivity extends AppCompatActivity implements RFIDHandler.Respo
         textrfid.setText("Scanning...");
         rfidHandler.performInventory();
     }
+    public void ClearInventory(View view) {
+        textrfid.setText("Inventory Cleared");
+        seenTags.clear();
+        runOnUiThread(() -> adapter.clearData());
+    }
+
+
 
     public void writeToTag(View view) throws InterruptedException {
 //        rfidHandler.writeEPC(fristTagScan, "123456781234567812345678");
@@ -180,12 +235,13 @@ public class MainActivity extends AppCompatActivity implements RFIDHandler.Respo
                 int decimal = Integer.parseInt(hexPair, 16);
                 asciiString.append((char) decimal);
             }
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             System.err.println("Invalid hex string: " + hexString);
             return "";
-    }
+        }
         return asciiString.toString();
-}
+    }
+
     public String asciiToHex(String asciiString) {
         if (asciiString == null || asciiString.isEmpty()) {
             return "";
@@ -194,7 +250,7 @@ public class MainActivity extends AppCompatActivity implements RFIDHandler.Respo
         StringBuilder hexBuilder = new StringBuilder();
         try {
             for (int i = 0; i < asciiString.length(); i++) {
-                int ascii = (int) asciiString.charAt(i);
+                int ascii = asciiString.charAt(i);
                 String hex = Integer.toHexString(ascii).toUpperCase();
                 if (hex.length() == 1) {
                     hexBuilder.append("0"); // Ensure two-digit hex
@@ -225,73 +281,75 @@ public class MainActivity extends AppCompatActivity implements RFIDHandler.Respo
         return hexString;
     }
 
-public void scanCode(View view) {
-    rfidHandler.scanCode();
+    public void scanCode(View view) {
+        rfidHandler.scanCode();
 
-}
-
-
-public void testFunction(View view) {
-    rfidHandler.testFunction();
-}
-
-public void StopInventory(View view) {
-    rfidHandler.stopInventory();
-}
-
-private StringBuilder tagListBuilder = new StringBuilder();
-private final Set<String> seenTags = new HashSet<>();
-
-@Override
-public void handleTagdata(TagData[] tagData) {
-    if (tagData == null || tagData.length == 0) return;
-
-    fristTagScan = tagData[0].getTagID();
-
-    synchronized (this) {
-        // Clear the builder only if we're starting a new inventory
-        if (textrfid.getText().toString().equals("Scanning...")) {
-            tagListBuilder = new StringBuilder();
-            seenTags.clear(); // Reset duplicates tracking
-        }
-
-        // Append new tags to the builder
-        for (TagData tag : tagData) {
-            String tagASCII = hexToASCII(tag.getTagID());
-//                if (tag.getPeakRSSI() > -100) {
-            String tagEntry = tagASCII + " , RSSI: " + tag.getPeakRSSI() + "\n";
-            String uniqueID = tag.getTagID();
-            // Only append if not already seen
-            if (seenTags.add(uniqueID)) {
-                tagListBuilder.append(tagEntry).append("\n");
-            }
-//                }
-        }
-
-
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                textrfid.setText(tagListBuilder.toString());
-            }
-        });
     }
-}
 
-@Override
-public void handleTriggerPress(boolean pressed) {
-    if (pressed) {
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                textrfid.setText("Scanning...");
-            }
-        });
-        rfidHandler.performInventory();
-    } else {
+
+    public void testFunction(View view) {
+        rfidHandler.testFunction();
+    }
+
+    public void StopInventory(View view) {
+        textrfid.setText("Inventory Stopped");
         rfidHandler.stopInventory();
     }
-}
+
+    private StringBuilder tagListBuilder = new StringBuilder();
+    private final Set<String> seenTags = new HashSet<>();
+
+    @Override
+    public void handleTagdata(TagData[] tagData) {
+        if (tagData == null || tagData.length == 0) return;
+
+        fristTagScan = tagData[0].getTagID();
+        startScan();
+
+        synchronized (this) {
+
+
+
+            for (TagData tag : tagData) {
+                String tagASCII = hexToASCII(tag.getTagID());
+                String RSSI = String.valueOf(tag.getPeakRSSI());
+//                String uniqueID = tagASCII;
+                textrfid.setText("Tag Found");
+
+
+                if (seenTags.add(tagASCII)) {
+                    // Post UI update on main thread
+                    runOnUiThread(() -> {
+                        adapter.addItem(tagASCII, RSSI);
+                    });
+                }
+            }
+        }
+    }
+    private void startScan() {
+//        seenTags.clear();
+//        adapter.clearData();
+        tagListBuilder = new StringBuilder();
+        textrfid.setText("Scanning...");
+    }
+
+
+
+
+    @Override
+    public void handleTriggerPress(boolean pressed) {
+        if (pressed) {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    textrfid.setText("Scanning...");
+                }
+            });
+            rfidHandler.performInventory();
+        } else {
+            rfidHandler.stopInventory();
+        }
+    }
 //    @Override
 //    public void handleTriggerPress(boolean pressed) {
 //        if (pressed) {
@@ -306,27 +364,27 @@ public void handleTriggerPress(boolean pressed) {
 //            rfidHandler.stopInventory();
 //    }
 
-@Override
-public void barcodeData(String val) {
-    runOnUiThread(new Runnable() {
-        @Override
-        public void run() {
-            scanResult.setText("Scan Result : " + val);
-        }
-    });
+    @Override
+    public void barcodeData(String val) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                scanResult.setText("Scan Result : " + val);
+            }
+        });
 
-}
+    }
 
-@Override
-public void sendToast(String val) {
-    runOnUiThread(new Runnable() {
-        @Override
-        public void run() {
-            Toast.makeText(MainActivity.this, val, Toast.LENGTH_SHORT).show();
-        }
-    });
+    @Override
+    public void sendToast(String val) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(MainActivity.this, val, Toast.LENGTH_SHORT).show();
+            }
+        });
 
-}
+    }
 
 
 }

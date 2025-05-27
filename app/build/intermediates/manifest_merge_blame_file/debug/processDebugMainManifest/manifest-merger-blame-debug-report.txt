@@ -34,7 +34,7 @@
 18-->[BarcodeScannerLibrary-release-28.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\a817084ac53d001246143e10bf9e3ff4\transformed\jetified-BarcodeScannerLibrary-release-28\AndroidManifest.xml:10:22-76
 19
 20    <application
-20-->C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:11:5-31:19
+20-->C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:11:5-32:19
 21        android:allowBackup="true"
 21-->C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:12:9-35
 22        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -72,21 +72,24 @@
 38-->C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:28:27-74
 39            </intent-filter>
 40        </activity>
-41        <activity
-41-->[com.google.android.gms:play-services-base:17.5.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\a523ba6ed02d0a6a507c04a12f8b587c\transformed\jetified-play-services-base-17.5.0\AndroidManifest.xml:23:9-26:75
-42            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-42-->[com.google.android.gms:play-services-base:17.5.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\a523ba6ed02d0a6a507c04a12f8b587c\transformed\jetified-play-services-base-17.5.0\AndroidManifest.xml:24:13-79
-43            android:exported="false"
-43-->[com.google.android.gms:play-services-base:17.5.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\a523ba6ed02d0a6a507c04a12f8b587c\transformed\jetified-play-services-base-17.5.0\AndroidManifest.xml:25:13-37
-44            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-44-->[com.google.android.gms:play-services-base:17.5.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\a523ba6ed02d0a6a507c04a12f8b587c\transformed\jetified-play-services-base-17.5.0\AndroidManifest.xml:26:13-72
-45
-46        <meta-data
-46-->[com.google.android.gms:play-services-basement:17.5.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\bcfac88c5dabcbaae12c4743735c7b5d\transformed\jetified-play-services-basement-17.5.0\AndroidManifest.xml:23:9-25:69
-47            android:name="com.google.android.gms.version"
-47-->[com.google.android.gms:play-services-basement:17.5.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\bcfac88c5dabcbaae12c4743735c7b5d\transformed\jetified-play-services-basement-17.5.0\AndroidManifest.xml:24:13-58
-48            android:value="@integer/google_play_services_version" />
-48-->[com.google.android.gms:play-services-basement:17.5.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\bcfac88c5dabcbaae12c4743735c7b5d\transformed\jetified-play-services-basement-17.5.0\AndroidManifest.xml:25:13-66
-49    </application>
-50
-51</manifest>
+41        <activity android:name="com.zebra.rfid.demo.sdksample.ProfileActivity" />
+41-->C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:31:9-52
+41-->C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:31:19-50
+42        <activity
+42-->[com.google.android.gms:play-services-base:17.5.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\a523ba6ed02d0a6a507c04a12f8b587c\transformed\jetified-play-services-base-17.5.0\AndroidManifest.xml:23:9-26:75
+43            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+43-->[com.google.android.gms:play-services-base:17.5.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\a523ba6ed02d0a6a507c04a12f8b587c\transformed\jetified-play-services-base-17.5.0\AndroidManifest.xml:24:13-79
+44            android:exported="false"
+44-->[com.google.android.gms:play-services-base:17.5.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\a523ba6ed02d0a6a507c04a12f8b587c\transformed\jetified-play-services-base-17.5.0\AndroidManifest.xml:25:13-37
+45            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+45-->[com.google.android.gms:play-services-base:17.5.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\a523ba6ed02d0a6a507c04a12f8b587c\transformed\jetified-play-services-base-17.5.0\AndroidManifest.xml:26:13-72
+46
+47        <meta-data
+47-->[com.google.android.gms:play-services-basement:17.5.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\bcfac88c5dabcbaae12c4743735c7b5d\transformed\jetified-play-services-basement-17.5.0\AndroidManifest.xml:23:9-25:69
+48            android:name="com.google.android.gms.version"
+48-->[com.google.android.gms:play-services-basement:17.5.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\bcfac88c5dabcbaae12c4743735c7b5d\transformed\jetified-play-services-basement-17.5.0\AndroidManifest.xml:24:13-58
+49            android:value="@integer/google_play_services_version" />
+49-->[com.google.android.gms:play-services-basement:17.5.0] C:\Users\matta\.gradle\caches\8.11.1\transforms\bcfac88c5dabcbaae12c4743735c7b5d\transformed\jetified-play-services-basement-17.5.0\AndroidManifest.xml:25:13-66
+50    </application>
+51
+52</manifest>

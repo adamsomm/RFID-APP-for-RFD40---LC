@@ -47,12 +47,12 @@ import java.util.Set;
 class RFIDHandler implements IDcsSdkApiDelegate, Readers.RFIDReaderEventHandler {
 
     final static String TAG = "RFID_SAMPLE";
-    private Readers readers;
+    Readers readers;
     private ArrayList<ReaderDevice> availableRFIDReaderList;
     private ReaderDevice readerDevice;
-    private RFIDReader reader;
+    RFIDReader reader;
     TextView textView;
-    private EventHandler eventHandler;
+    EventHandler eventHandler;
     private MainActivity context;
     private SDKHandler sdkHandler;
     private ArrayList<DCSScannerInfo> scannerList;
@@ -252,7 +252,6 @@ class RFIDHandler implements IDcsSdkApiDelegate, Readers.RFIDReaderEventHandler 
 //            readers = null;
 //        }
     }
-
 
     //
     // RFID SDK
@@ -1060,34 +1059,43 @@ class RFIDHandler implements IDcsSdkApiDelegate, Readers.RFIDReaderEventHandler 
             disconnect();
     }
 
+    private static final int MAX_RETRY_COUNT = 5;
 
     private synchronized String connect() {
-        if (reader != null) {
-            Log.d(TAG, "connect " + reader.getHostName());
+        if (reader == null) {
+            return "Reader is null";
+        }
+
+        Log.d(TAG, "Attempting to connect to " + reader.getHostName());
+
+        for (int attempt = 1; attempt <= MAX_RETRY_COUNT; attempt++) {
+            Log.d(TAG, "Connection attempt " + attempt);
             try {
                 if (!reader.isConnected()) {
-                    // Establish connection to the RFID Reader
                     reader.connect();
                     ConfigureReader();
                     disableBeeper();
+                }
 
-                    //Call this function if the readerdevice supports scanner to setup scanner SDK
-                    //setupScannerSDK();
-                    if (reader.isConnected()) {
-                        return "Connected: " + reader.getHostName();
-                    }
-
+                if (reader.isConnected()) {
+                    return "Connected: " + reader.getHostName();
                 }
             } catch (InvalidUsageException e) {
-                e.printStackTrace();
+                Log.e(TAG, "InvalidUsageException on attempt " + attempt, e);
             } catch (OperationFailureException e) {
-                e.printStackTrace();
-                Log.d(TAG, "OperationFailureException " + e.getVendorMessage());
-                String des = e.getResults().toString();
-                return "Connection failed" + e.getVendorMessage() + " " + des;
+                Log.e(TAG, "OperationFailureException on attempt " + attempt + ": " + e.getVendorMessage(), e);
+                // Don't return here — let it retry
+            }
+
+            try {
+                Thread.sleep(500); // delay before retry
+            } catch (InterruptedException ie) {
+                Thread.currentThread().interrupt();
+                return "Connection interrupted during retry";
             }
         }
-        return "";
+
+        return "Failed to connect after " + MAX_RETRY_COUNT + " attempts";
     }
 
     private void ConfigureReader() {
@@ -1134,75 +1142,6 @@ class RFIDHandler implements IDcsSdkApiDelegate, Readers.RFIDReaderEventHandler 
             }
         }
     }
-
-
-/*
-
-    void onDestroy() {
-        dispose();
-    }
-
-    String onResume() {
-        return connect();
-    }
-
-    void onPause() {
-        disconnect();
-    }
-*/
-
-/*
-    private synchronized String connect() {
-        Log.d(TAG, "connect");
-        if (reader != null) {
-            try {
-                if (!reader.isConnected()) {
-                    // Establish connection to the RFID Reader
-                    reader.connect();
-                    ConfigureReader();
-
-                    setupScannerSDK();
-                    return "Connected";
-                }
-            } catch (InvalidUsageException e) {
-                //e.printStackTrace();
-            } catch (OperationFailureException e) {
-                //e.printStackTrace();
-                Log.d(TAG, "OperationFailureException " + e.getVendorMessage());
-                return "Connection failed" + e.getVendorMessage() + " " + e.getStatusDescription();
-            }
-        }
-        return "";
-    }
-
-    private void ConfigureReader() {
-        if (reader.isConnected()) {
-            TriggerInfo triggerInfo = new TriggerInfo();
-            triggerInfo.StartTrigger.setTriggerType(START_TRIGGER_TYPE.START_TRIGGER_TYPE_IMMEDIATE);
-            triggerInfo.StopTrigger.setTriggerType(STOP_TRIGGER_TYPE.STOP_TRIGGER_TYPE_IMMEDIATE);
-            try {
-                // receive events from reader
-                if (eventHandler == null)
-                    eventHandler = new EventHandler();
-                reader.Events.addEventsListener(eventHandler);
-                // HH event
-                reader.Events.setHandheldEvent(true);
-                // tag event with tag data
-                reader.Events.setTagReadEvent(true);
-                reader.Events.setAttachTagDataWithReadEvent(false);
-                reader.Events.setReaderDisconnectEvent(true);
-
-                reader.Config.setTriggerMode(ENUM_TRIGGER_MODE.RFID_MODE, false);
-                // set start and stop triggers
-                reader.Config.setStartTrigger(triggerInfo.StartTrigger);
-                reader.Config.setStopTrigger(triggerInfo.StopTrigger);
-
-            } catch (InvalidUsageException | OperationFailureException e) {
-                //e.printStackTrace();
-            }
-        }
-    }
-*/
 
     public void setupScannerSDK() {
         if (sdkHandler == null) {
@@ -1331,7 +1270,7 @@ class RFIDHandler implements IDcsSdkApiDelegate, Readers.RFIDReaderEventHandler 
 
     public synchronized void stopInventory() {
         if (!isInventoryRunning) {
-            context.sendToast("Inventory is not running.");
+//            context.sendToast("Inventory is not running.");
             return;
         }
 

@@ -3,6 +3,7 @@ package com.zebra.rfid.demo.sdksample;
 import static androidx.media.session.MediaButtonReceiver.handleIntent;
 
 import android.Manifest;
+import android.content.ComponentCallbacks2;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -175,6 +176,14 @@ public class MainActivity extends AppCompatActivity implements RFIDHandler.Respo
         super.onDestroy();
         rfidHandler.onDestroy();
     }
+    @Override
+    public void onBackPressed() {
+        if (isTaskRoot()) {
+            AppData.getInstance().cleanupReader();
+        }
+        super.onBackPressed();
+    }
+
 
 
     // Update the StartInventory method to clear the display
@@ -343,19 +352,6 @@ public class MainActivity extends AppCompatActivity implements RFIDHandler.Respo
             rfidHandler.stopInventory();
         }
     }
-//    @Override
-//    public void handleTriggerPress(boolean pressed) {
-//        if (pressed) {
-//            runOnUiThread(new Runnable() {
-//                @Override
-//                public void run() {
-//                    textrfid.setText("");
-//                }
-//            });
-//            rfidHandler.performInventory();
-//        } else
-//            rfidHandler.stopInventory();
-//    }
 
     @Override
     public void barcodeData(String val) {

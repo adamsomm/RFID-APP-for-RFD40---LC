@@ -1,5 +1,6 @@
 package com.zebra.rfid.demo.sdksample;
 
+import android.content.ComponentCallbacks2;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -118,7 +119,7 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onPostResume() {
         super.onPostResume();
-//        String result = rfidHandler.onResume();
+        rfidHandler.onResume();
 //        statusTextViewRFID.setText(result);
     }
 
@@ -127,4 +128,5 @@ public class ProfileActivity extends AppCompatActivity {
         super.onDestroy();
         rfidHandler.onDestroy();
     }
+
 }

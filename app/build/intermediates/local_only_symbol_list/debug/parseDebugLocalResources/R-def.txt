@@ -13,7 +13,6 @@ color teal_700
 color white
 dimen fab_margin
 drawable ic_launcher_background
-drawable ic_launcher_foreground
 drawable new_logo
 id Default
 id IDtextView
@@ -32,6 +31,7 @@ id button3
 id button4
 id edittextrfid
 id imageView
+id imageView3
 id inputSerial
 id inputSerial2
 id layout

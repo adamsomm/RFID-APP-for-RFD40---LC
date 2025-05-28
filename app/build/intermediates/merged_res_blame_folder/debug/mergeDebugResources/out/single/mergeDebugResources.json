@@ -4,16 +4,24 @@
         "source": "C:\\Users\\matta\\.gradle\\daemon\\8.11.1\\com.zebra.rfid.demo.sdksample.app-main-29:\\layout\\content_main.xml"
     },
     {
+        "merged": "com.zebra.rfid.demo.sdksample.app-debug-27:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.zebra.rfid.demo.sdksample.app-main-29:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
         "merged": "C:\\Users\\matta\\.gradle\\daemon\\8.11.1\\com.zebra.rfid.demo.sdksample.app-debug-27:\\mipmap-xxhdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\matta\\.gradle\\daemon\\8.11.1\\com.zebra.rfid.demo.sdksample.app-main-29:\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "com.zebra.rfid.demo.sdksample.app-debug-27:/mipmap-xhdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.zebra.rfid.demo.sdksample.app-main-29:/mipmap-xhdpi/ic_launcher_foreground.webp"
     },
     {
         "merged": "C:\\Users\\matta\\.gradle\\daemon\\8.11.1\\com.zebra.rfid.demo.sdksample.app-debug-27:\\mipmap-xxxhdpi_ic_launcher_foreground.webp.flat",
         "source": "C:\\Users\\matta\\.gradle\\daemon\\8.11.1\\com.zebra.rfid.demo.sdksample.app-main-29:\\mipmap-xxxhdpi\\ic_launcher_foreground.webp"
     },
     {
-        "merged": "com.zebra.rfid.demo.sdksample.app-debug-27:/layout_tag_options.xml.flat",
-        "source": "com.zebra.rfid.demo.sdksample.app-main-29:/layout/tag_options.xml"
+        "merged": "com.zebra.rfid.demo.sdksample.app-debug-27:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.zebra.rfid.demo.sdksample.app-main-29:/mipmap-mdpi/ic_launcher_round.webp"
     },
     {
         "merged": "C:\\Users\\matta\\.gradle\\daemon\\8.11.1\\com.zebra.rfid.demo.sdksample.app-debug-27:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
@@ -24,12 +32,36 @@
         "source": "C:\\Users\\matta\\.gradle\\daemon\\8.11.1\\com.zebra.rfid.demo.sdksample.app-main-29:\\drawable-v24\\ic_launcher_foreground.xml"
     },
     {
+        "merged": "com.zebra.rfid.demo.sdksample.app-debug-27:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.zebra.rfid.demo.sdksample.app-main-29:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.zebra.rfid.demo.sdksample.app-debug-27:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.zebra.rfid.demo.sdksample.app-main-29:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
         "merged": "C:\\Users\\matta\\.gradle\\daemon\\8.11.1\\com.zebra.rfid.demo.sdksample.app-debug-27:\\layout_recycler_view_row.xml.flat",
         "source": "C:\\Users\\matta\\.gradle\\daemon\\8.11.1\\com.zebra.rfid.demo.sdksample.app-main-29:\\layout\\recycler_view_row.xml"
     },
     {
+        "merged": "com.zebra.rfid.demo.sdksample.app-debug-27:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.zebra.rfid.demo.sdksample.app-main-29:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.zebra.rfid.demo.sdksample.app-debug-27:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.zebra.rfid.demo.sdksample.app-main-29:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.zebra.rfid.demo.sdksample.app-debug-27:/mipmap-xxxhdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.zebra.rfid.demo.sdksample.app-main-29:/mipmap-xxxhdpi/ic_launcher_foreground.webp"
+    },
+    {
         "merged": "C:\\Users\\matta\\.gradle\\daemon\\8.11.1\\com.zebra.rfid.demo.sdksample.app-debug-27:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\matta\\.gradle\\daemon\\8.11.1\\com.zebra.rfid.demo.sdksample.app-main-29:\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "com.zebra.rfid.demo.sdksample.app-debug-27:/mipmap-xxhdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.zebra.rfid.demo.sdksample.app-main-29:/mipmap-xxhdpi/ic_launcher_foreground.webp"
     },
     {
         "merged": "C:\\Users\\matta\\.gradle\\daemon\\8.11.1\\com.zebra.rfid.demo.sdksample.app-debug-27:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
@@ -64,6 +96,10 @@
         "source": "C:\\Users\\matta\\.gradle\\daemon\\8.11.1\\com.zebra.rfid.demo.sdksample.app-main-29:\\drawable\\new_logo.xml"
     },
     {
+        "merged": "com.zebra.rfid.demo.sdksample.app-debug-27:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.zebra.rfid.demo.sdksample.app-main-29:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
         "merged": "C:\\Users\\matta\\.gradle\\daemon\\8.11.1\\com.zebra.rfid.demo.sdksample.app-debug-27:\\drawable_ic_launcher_background.xml.flat",
         "source": "C:\\Users\\matta\\.gradle\\daemon\\8.11.1\\com.zebra.rfid.demo.sdksample.app-main-29:\\drawable\\ic_launcher_background.xml"
     },
@@ -78,6 +114,10 @@
     {
         "merged": "C:\\Users\\matta\\.gradle\\daemon\\8.11.1\\com.zebra.rfid.demo.sdksample.app-debug-27:\\mipmap-hdpi_ic_launcher_foreground.webp.flat",
         "source": "C:\\Users\\matta\\.gradle\\daemon\\8.11.1\\com.zebra.rfid.demo.sdksample.app-main-29:\\mipmap-hdpi\\ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "com.zebra.rfid.demo.sdksample.app-debug-27:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.zebra.rfid.demo.sdksample.app-main-29:/mipmap-xxhdpi/ic_launcher_round.webp"
     },
     {
         "merged": "C:\\Users\\matta\\.gradle\\daemon\\8.11.1\\com.zebra.rfid.demo.sdksample.app-debug-27:\\mipmap-mdpi_ic_launcher_foreground.webp.flat",
@@ -100,11 +140,27 @@
         "source": "C:\\Users\\matta\\.gradle\\daemon\\8.11.1\\com.zebra.rfid.demo.sdksample.app-main-29:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
+        "merged": "com.zebra.rfid.demo.sdksample.app-debug-27:/mipmap-hdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.zebra.rfid.demo.sdksample.app-main-29:/mipmap-hdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "com.zebra.rfid.demo.sdksample.app-debug-27:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.zebra.rfid.demo.sdksample.app-main-29:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
         "merged": "C:\\Users\\matta\\.gradle\\daemon\\8.11.1\\com.zebra.rfid.demo.sdksample.app-debug-27:\\menu_menu_main.xml.flat",
         "source": "C:\\Users\\matta\\.gradle\\daemon\\8.11.1\\com.zebra.rfid.demo.sdksample.app-main-29:\\menu\\menu_main.xml"
     },
     {
         "merged": "C:\\Users\\matta\\.gradle\\daemon\\8.11.1\\com.zebra.rfid.demo.sdksample.app-debug-27:\\mipmap-xhdpi_ic_launcher_foreground.webp.flat",
         "source": "C:\\Users\\matta\\.gradle\\daemon\\8.11.1\\com.zebra.rfid.demo.sdksample.app-main-29:\\mipmap-xhdpi\\ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "com.zebra.rfid.demo.sdksample.app-debug-27:/mipmap-mdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.zebra.rfid.demo.sdksample.app-main-29:/mipmap-mdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "com.zebra.rfid.demo.sdksample.app-debug-27:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.zebra.rfid.demo.sdksample.app-main-29:/mipmap-hdpi/ic_launcher.webp"
     }
 ]

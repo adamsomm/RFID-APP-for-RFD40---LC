@@ -71,6 +71,7 @@ class RFIDHandler implements IDcsSdkApiDelegate, Readers.RFIDReaderEventHandler 
     String readerName = "RFD4031-G10B700-US";
     String RFD8500 = "RFD8500161755230D5038";
 
+
     void onCreate(MainActivity activity) {
         context = activity;
         textView = activity.statusTextViewRFID;
@@ -215,7 +216,7 @@ class RFIDHandler implements IDcsSdkApiDelegate, Readers.RFIDReaderEventHandler 
         return "Default settings applied";
     }
 
-    private boolean isReaderConnected() {
+    boolean isReaderConnected() {
         if (reader != null && reader.isConnected())
             return true;
         else {
@@ -237,19 +238,19 @@ class RFIDHandler implements IDcsSdkApiDelegate, Readers.RFIDReaderEventHandler 
     }
 
     public void onDestroy() {
-        try {
+//        try {
             stopInventory();  // stop if running
-            if (reader != null && isReaderConnected()) {
-                reader.Events.removeEventsListener(eventHandler);  // optional, good hygiene
-                reader.disconnect();  // correctly spelled
-            }
-        } catch (Exception e) {
-            Log.e(TAG, "Error during cleanup: " + e.getMessage());
-            e.printStackTrace();
-        } finally {
-            reader = null;
-            readers = null;
-        }
+//            if (reader != null && isReaderConnected()) {
+//                reader.Events.removeEventsListener(eventHandler);  // optional, good hygiene
+//                reader.disconnect();  // correctly spelled
+//            }
+//        } catch (Exception e) {
+//            Log.e(TAG, "Error during cleanup: " + e.getMessage());
+//            e.printStackTrace();
+//        } finally {
+//            reader = null;
+//            readers = null;
+//        }
     }
 
 
@@ -1293,7 +1294,7 @@ class RFIDHandler implements IDcsSdkApiDelegate, Readers.RFIDReaderEventHandler 
         }
     }
 
-    private boolean isInventoryRunning = false;
+    boolean isInventoryRunning = false;
 
     public synchronized void performInventory() {
         if (reader == null || !isReaderConnected()) {
@@ -1470,15 +1471,15 @@ class RFIDHandler implements IDcsSdkApiDelegate, Readers.RFIDReaderEventHandler 
         }
     }
 
+
     interface ResponseHandlerInterface {
         void handleTagdata(TagData[] tagData);
-
         void handleTriggerPress(boolean pressed);
-
         void barcodeData(String val);
-
         void sendToast(String val);
         //void handleStatusEvents(Events.StatusEventData eventData);
     }
+
+
 
 }

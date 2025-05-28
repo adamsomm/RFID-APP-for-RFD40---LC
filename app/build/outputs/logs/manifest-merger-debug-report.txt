@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:2:1-33:12
-INJECTED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:2:1-33:12
-INJECTED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:2:1-33:12
-INJECTED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:2:1-33:12
+ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:2:1-36:12
 MERGED from [API3_ASCII-release-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\de1e63b1f12903acf28c96214be45618\transformed\jetified-API3_ASCII-release-2.0.4.192\AndroidManifest.xml:2:1-7:12
 MERGED from [API3_CMN-release-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\41c0c1e5621b9b61360091dc3af32e86\transformed\jetified-API3_CMN-release-2.0.4.192\AndroidManifest.xml:2:1-7:12
 MERGED from [API3_INTERFACE-release-2.0.4.192.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\34c6bcd66b6678fa2eec641903de528f\transformed\jetified-API3_INTERFACE-release-2.0.4.192\AndroidManifest.xml:2:1-7:12
@@ -110,8 +110,8 @@ ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\s
 	android:name
 		ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:10:22-75
 application
-ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:11:5-31:19
-INJECTED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:11:5-31:19
+ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:11:5-34:19
+INJECTED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:11:5-34:19
 MERGED from [BarcodeScannerLibrary-release-28.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\a817084ac53d001246143e10bf9e3ff4\transformed\jetified-BarcodeScannerLibrary-release-28\AndroidManifest.xml:13:5-15:44
 MERGED from [BarcodeScannerLibrary-release-28.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\a817084ac53d001246143e10bf9e3ff4\transformed\jetified-BarcodeScannerLibrary-release-28\AndroidManifest.xml:13:5-15:44
 MERGED from [rfidhostlib.aar] C:\Users\matta\.gradle\caches\8.11.1\transforms\ac72327864e9d739cafc020bc2f346d7\transformed\jetified-rfidhostlib\AndroidManifest.xml:9:5-20
@@ -170,6 +170,10 @@ category#android.intent.category.LAUNCHER
 ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:28:17-77
 	android:name
 		ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:28:27-74
+activity#com.zebra.rfid.demo.sdksample.ProfileActivity
+ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:31:9-33:20
+	android:name
+		ADDED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml:32:13-44
 uses-sdk
 INJECTED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\matta\Desktop\Zebra_RFIDAPI3_SDK_2.0.4.192\HHSampleApp\app\src\main\AndroidManifest.xml

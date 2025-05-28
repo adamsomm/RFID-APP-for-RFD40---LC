@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="http://schemas.android.com/tools">
-    <color name="LCBlue">#403f8b</color>
+    <color name="LCBlue">#121838</color>
     <color name="black">#FF000000</color>
     <color name="colorAccent">#ff7043</color>
     <color name="colorPrimary">#78909c</color>

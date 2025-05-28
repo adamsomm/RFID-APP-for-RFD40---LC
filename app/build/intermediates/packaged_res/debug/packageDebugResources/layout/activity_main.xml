@@ -9,15 +9,15 @@
 
     <TextView
         android:id="@+id/textrfid"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="RFID Status: " />
 
     <TextView
         android:id="@+id/textViewStatusrfid"
-        android:layout_below="@+id/textrfid"
-        android:layout_width="match_parent"
+        android:layout_width="271dp"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/textrfid"
         android:layout_marginLeft="5dp"
         android:text="" />
 
@@ -48,32 +48,42 @@
         <Button
             android:id="@+id/TestButton"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
             android:layout_weight="1"
             android:onClick="StartInventory"
-            android:layout_margin="5dp"
             android:text="Start Inventory"
             android:textSize="10sp" />
 
         <Button
             android:id="@+id/TestButton2"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:onClick="ClearInventory"
+            android:text="CLEAR INVENTORY"
+            android:textSize="10sp" />
+
+        <Button
+            android:id="@+id/testButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
             android:layout_weight="1"
             android:onClick="StopInventory"
-            android:layout_margin="5dp"
             android:text="Stop Inventory"
             android:textSize="10sp" />
 
-<!--        <Button-->
-<!--            android:id="@+id/TestButton3"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_weight="1"-->
-<!--            android:onClick="testFunction"-->
-<!--            android:layout_margin="5dp"-->
-<!--            android:text="testFunction"-->
-<!--            android:textSize="10sp" />-->
+        <!--        <Button-->
+        <!--            android:id="@+id/TestButton3"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_weight="1"-->
+        <!--            android:onClick="testFunction"-->
+        <!--            android:layout_margin="5dp"-->
+        <!--            android:text="testFunction"-->
+        <!--            android:textSize="10sp" />-->
     </LinearLayout>
 
     <EditText
@@ -81,8 +91,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/layout"
-        android:layout_marginTop="8dp"
         android:layout_marginLeft="5dp"
+        android:layout_marginTop="8dp"
         android:layout_marginRight="5dp"
         android:hint="Enter serial number (hexadecimal)"
         android:inputType="text" />
@@ -92,11 +102,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/inputSerial"
-        android:layout_marginTop="5dp"
         android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
         android:layout_marginRight="5dp"
-        android:text="Write to Tag"
-        android:onClick="writeToTag" />
+        android:onClick="writeToTag"
+        android:text="Write to Tag" />
 
     <LinearLayout
         android:id="@+id/layout2"
@@ -108,10 +118,16 @@
 
         <TextView
             android:id="@+id/TagID"
-            android:layout_width="match_parent"
+            android:layout_width="292dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="TAG ID: " />
+
+        <TextView
+            android:id="@+id/edittextrfid"
+            android:layout_width="207dp"
+            android:layout_height="wrap_content"
+            android:text="" />
 
         <TextView
             android:id="@+id/RSSI"
@@ -119,22 +135,22 @@
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:text="RSSI: " />
+
     </LinearLayout>
 
-    <ScrollView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/layout2"
-        android:layout_alignParentBottom="true"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="3dp">
+        android:layout_height="430dp"
+        android:layout_below="@+id/btnWriteTag"
+        android:layout_marginTop="22dp" />
 
-        <TextView
-            android:id="@+id/edittextrfid"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="none|textMultiLine" />
-    </ScrollView>
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="120dp"
+        android:layout_height="36dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="3dp"
+        app:srcCompat="@drawable/new_logo" />
 
 </RelativeLayout>

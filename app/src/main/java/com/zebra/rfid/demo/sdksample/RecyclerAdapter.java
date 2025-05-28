@@ -17,8 +17,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
 
     public RecyclerAdapter(ArrayList<ListData> listData, RecyclerViewClickListener listener) {
-        this.listData = listData;
-        this.listener = listener;
+        RecyclerAdapter.listData = listData;
+        RecyclerAdapter.listener = listener;
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

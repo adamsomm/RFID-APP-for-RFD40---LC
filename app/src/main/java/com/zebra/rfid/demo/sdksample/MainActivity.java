@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -29,17 +30,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 
-/**
- * Sample app to connect to the reader,to do inventory and basic barcode scan
- * We can also set antenna settings and singulation control
- */
-
 public class MainActivity extends AppCompatActivity implements RFIDHandler.ResponseHandlerInterface {
 
     private RecyclerAdapter.RecyclerViewClickListener listener;
     private ArrayList<ListData> listData;
     private RecyclerAdapter adapter;
-
     private RecyclerView recyclerView;
     public TextView statusTextViewRFID = null;
     public TextView textrfid, scanResult;
@@ -48,31 +43,29 @@ public class MainActivity extends AppCompatActivity implements RFIDHandler.Respo
     public static SDKHandler sdkHandler;
     public static String fristTagScan = null;
 
-    private static final int BLUETOOTH_PERMISSION_REQUEST_CODE = 100;
+    static final int BLUETOOTH_PERMISSION_REQUEST_CODE = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
-        // RFID Handler
+        // Get shared instances from AppData singleton
+        if (AppData.getInstance().rfidHandler == null) {
+            AppData.getInstance().rfidHandler = new RFIDHandler(); // Create it
+        }
+
+        rfidHandler = AppData.getInstance().rfidHandler;
+        listData = AppData.getInstance().listData;
+
         statusTextViewRFID = findViewById(R.id.textViewStatusrfid);
         textrfid = findViewById(R.id.edittextrfid);
         scanResult = findViewById(R.id.scanResult);
-        rfidHandler = new RFIDHandler();
-//        rfidHandler.onCreate(this);
         recyclerView = findViewById(R.id.mRecyclerView);
-        listData = new ArrayList<>();
 
-//        setUserInfo();
         setAdapter();
 
-
-
-
-
-        //Scanner Initializations
-        //Handling Runtime BT permissions for Android 12 and higher
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             if (ContextCompat.checkSelfPermission(this,
                     Manifest.permission.BLUETOOTH_CONNECT)
@@ -82,14 +75,13 @@ public class MainActivity extends AppCompatActivity implements RFIDHandler.Respo
             } else {
                 rfidHandler.onCreate(this);
             }
-
         } else {
             rfidHandler.onCreate(this);
         }
-
     }
 
-//    private void setUserInfo() {
+
+    //    private void setUserInfo() {
 //        listData.add(new ListData("MH1", "38"));
 //        listData.add(new ListData("MH2", "37"));
 //        listData.add(new ListData("MH3", "36"));
@@ -109,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements RFIDHandler.Respo
         listener = new RecyclerAdapter.RecyclerViewClickListener() {
             @Override
             public void onClick(View v, int position) {
-                Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+                Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
                 intent.putExtra("TagID", listData.get(position).getTagID());
                 startActivity(intent);
             }
@@ -121,7 +113,8 @@ public class MainActivity extends AppCompatActivity implements RFIDHandler.Respo
 
         if (requestCode == BLUETOOTH_PERMISSION_REQUEST_CODE) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                rfidHandler.onCreate(this);
+//                rfidHandler.onCreate(this);
+                AppData.getInstance().rfidHandler.onCreate(this);
             } else {
                 Toast.makeText(this, "Bluetooth Permissions not granted", Toast.LENGTH_SHORT).show();
             }
@@ -202,6 +195,10 @@ public class MainActivity extends AppCompatActivity implements RFIDHandler.Respo
         // Or if you want to use the input field:
         TextView inputSerial = findViewById(R.id.inputSerial);
         String inputHexString = inputSerial.getText().toString();
+        if (inputHexString.isEmpty()) {
+            Toast.makeText(this, "Please enter a serial number", Toast.LENGTH_SHORT).show();
+            return;
+        }
         String inputASCIIString = asciiToHex(inputHexString);
         rfidHandler.writeEPC(fristTagScan, inputASCIIString);
 
@@ -307,15 +304,11 @@ public class MainActivity extends AppCompatActivity implements RFIDHandler.Respo
         startScan();
 
         synchronized (this) {
-
-
-
             for (TagData tag : tagData) {
                 String tagASCII = hexToASCII(tag.getTagID());
                 String RSSI = String.valueOf(tag.getPeakRSSI());
 //                String uniqueID = tagASCII;
                 textrfid.setText("Tag Found");
-
 
                 if (seenTags.add(tagASCII)) {
                     // Post UI update on main thread

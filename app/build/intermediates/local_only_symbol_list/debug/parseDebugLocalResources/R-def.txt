@@ -33,6 +33,7 @@ id button4
 id edittextrfid
 id imageView
 id inputSerial
+id inputSerial2
 id layout
 id layout2
 id mRecyclerView

@@ -2034,6 +2034,7 @@ id image
 id imageView
 id info
 id inputSerial
+id inputSerial2
 id invisible
 id inward
 id italic
